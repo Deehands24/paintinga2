@@ -193,16 +193,16 @@ Source URL: ${leadData.source}
                 </div>
             </fieldset>
 
-            <fieldset className="p-4 border border-gray-200 rounded-md">
-                 <legend className="text-lg font-medium text-blue-600 px-2">Kitchen Cabinets</legend>
+            <fieldset className="p-4 border border-gray-700 rounded-md">
+                 <legend className="text-lg font-medium text-blue-900 px-2">Kitchen Cabinets</legend>
                  <div className="mt-4 space-y-4">
                      <div className="flex items-start">
                         <div className="flex items-center h-5">
                             <input id="includeCabinets" name="includeCabinets" type="checkbox" checked={formData.includeCabinets} onChange={handleFormChange} className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" />
                         </div>
                         <div className="ml-3 text-sm">
-                            <label htmlFor="includeCabinets" className="font-medium text-gray-700">Include cabinet painting?</label>
-                            <p className="text-gray-500">Select this to add cabinet refinishing to your estimate.</p>
+                            <label htmlFor="includeCabinets" className="font-medium text-gray-900">Include cabinet painting?</label>
+                            <p className="text-gray-900">Select this to add cabinet refinishing to your estimate.</p>
                         </div>
                     </div>
                     {formData.includeCabinets && (
@@ -226,18 +226,18 @@ Source URL: ${leadData.source}
 
     const renderEstimateDisplay = () => (
         <div className="relative">
-            <div className={`text-center p-8 border-4 border-dashed border-blue-300 rounded-lg transition-all duration-500 ${step !== 'result' ? 'blur-md' : ''}`}>
-                <p className="text-lg text-gray-600">Your Estimated Project Cost</p>
+            <div className={`text-center p-8 border-4 border-dashed border-blue-500 rounded-lg transition-all duration-500 ${step !== 'result' ? 'blur-md' : ''}`}>
+                <p className="text-lg text-gray-900">Your Estimated Project Cost</p>
                 <p className="text-5xl font-extrabold text-blue-600 my-2">
                     ${estimate?.min.toLocaleString()} - ${estimate?.max.toLocaleString()}
                 </p>
-                <p className="text-sm text-gray-500">*This is a budget estimate. A formal quote requires an in-person consultation.</p>
+                <p className="text-sm text-gray-900">*This is a budget estimate. A formal quote requires an in-person consultation.</p>
             </div>
              {step === 'contact' && (
                 <div className="absolute inset-0 bg-white/80 flex items-center justify-center p-4">
                      <form onSubmit={revealEstimate} className="bg-white p-6 rounded-lg shadow-xl border w-full max-w-md text-center">
                         <h3 className="text-xl font-bold text-gray-800">Unlock Your Estimate!</h3>
-                        <p className="text-gray-600 mt-2 mb-4">Enter your phone or email below to instantly see your project estimate.</p>
+                        <p className="text-gray-800 mt-2 mb-4">Enter your phone or email below to instantly see your project estimate.</p>
                         <div className="space-y-4">
                             <div>
                                 <label htmlFor="phone" className="block text-sm font-medium text-gray-700">Phone Number</label>
@@ -248,11 +248,11 @@ Source URL: ${leadData.source}
                                     value={contactInfo.phone}
                                     onChange={handleContactChange}
                                     placeholder="(555) 555-5555"
-                                    className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                    className="mt-1 block w-full px-3 py-2 bg-white border border-gray-900 rounded-md shadow-sm placeholder-gray-800 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                                 />
                             </div>
                             <div>
-                                <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email Address</label>
+                                <label htmlFor="email" className="block text-sm font-medium text-gray-900">Email Address</label>
                                 <input
                                     type="email"
                                     name="email"
@@ -260,7 +260,7 @@ Source URL: ${leadData.source}
                                     value={contactInfo.email}
                                     onChange={handleContactChange}
                                     placeholder="you@example.com"
-                                    className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                    className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                                 />
                             </div>
                         </div>

@@ -214,220 +214,221 @@ admin@ges-development.com
 
 3. **Add to codebase:**
    - Open `src/data/businesses.ts`
-   - Copy an existing listing and modify
-   - Set `tier: 'pro'` or `tier: 'premier'`
-   - Set `featured: true` for Premier members
-   - Set `verified: true` if you verified their license
+      - Copy an existing listing and modify
+         - Set `tier: 'pro'` or `tier: 'premier'`
+            - Set `featured: true` for Premier members
+               - Set `verified: true` if you verified their license
 
-4. **Deploy:**
-```bash
-git add .
-git commit -m "Add [Company Name] listing"
-git push
-```
-   Vercel auto-deploys in 2 minutes!
+               4. **Deploy:**
+               ```bash
+               git add .
+               git commit -m "Add [Company Name] listing"
+               git push
+               ```
+                  Vercel auto-deploys in 2 minutes!
 
-5. **Send confirmation:**
-```
-Subject: Your PaintingA2 Listing is LIVE!
+                  5. **Send confirmation:**
+                  ```
+                  Subject: Your PaintingA2 Listing is LIVE!
 
-Hi [Name],
+                  Hi [Name],
 
-Your profile is now live!
-View it here: https://paintinga2.com/listings/[their-slug]
+                  Your profile is now live!
+                  View it here: https://paintinga2.com/listings/[their-slug]
 
-Your listing includes:
-✓ Professional profile page
-✓ Verified business badge
-✓ Full service listing
-✓ Contact information
-[Premier only: ✓ Featured placement on homepage]
-[Premier only: ✓ Dedicated lead calculator on your page]
+                  Your listing includes:
+                  ✓ Professional profile page
+                  ✓ Verified business badge
+                  ✓ Full service listing
+                  ✓ Contact information
+                  [Premier only: ✓ Featured placement on homepage]
+                  [Premier only: ✓ Dedicated lead calculator on your page]
 
-Leads will be sent to: [their email or yours for distribution]
+                  Leads will be sent to: [their email or yours for distribution]
 
-Welcome aboard!
-```
+                  Welcome aboard!
+                  ```
 
----
+                  ---
 
-## STEP 5: Lead Distribution (Manual for Now)
+                  ## STEP 5: Lead Distribution (Manual for Now)
 
-### When a Lead Comes In:
+                  ### When a Lead Comes In:
 
-**Your email will show:**
-```
-LEAD DETAILS
-===========
-Business: Tribble Painting (or "PaintingA2 Homepage")
-Timestamp: 2024-10-14...
+                  **Your email will show:**
+                  ```
+                  LEAD DETAILS
+                  ===========
+                  Business: Tribble Painting (or "PaintingA2 Homepage")
+                  Timestamp: 2024-10-14...
 
-CONTACT INFO
-===========
-Email: customer@example.com
-Phone: (734) 555-1234
+                  CONTACT INFO
+                  ===========
+                  Email: customer@example.com
+                  Phone: (734) 555-1234
 
-PROJECT DETAILS
-===========
-Square Footage: 2000 sq ft
-Wall Condition: minor_repairs
-Estimate: $5,500 - $6,500
-```
+                  PROJECT DETAILS
+                  ===========
+                  Square Footage: 2000 sq ft
+                  Wall Condition: minor_repairs
+                  Estimate: $5,500 - $6,500
+                  ```
 
-**Distribution Strategy:**
+                  **Distribution Strategy:**
 
-**If lead came from Premier member's page:**
-- Forward email directly to that painter
-- Subject: "New qualified lead for [Painter Name]"
+                  **If lead came from Premier member's page:**
+                  - Forward email directly to that painter
+                  - Subject: "New qualified lead for [Painter Name]"
 
-**If lead came from homepage:**
-- Send to ALL Premier members (they pay for leads)
-- First to respond gets it
-- OR rotate leads fairly
+                  **If lead came from homepage:**
+                  - Send to ALL Premier members (they pay for leads)
+                  - First to respond gets it
+                  - OR rotate leads fairly
 
-**Track in spreadsheet:**
-- Date
-- Lead name/contact
-- Project size
-- Sent to which painter
-- Did they close? (follow up in 2 weeks)
+                  **Track in spreadsheet:**
+                  - Date
+                  - Lead name/contact
+                  - Project size
+                  - Sent to which painter
+                  - Did they close? (follow up in 2 weeks)
 
----
+                  ---
 
-## STEP 6: Future Automation (Do This AFTER First 5 Customers)
+                  ## STEP 6: Future Automation (Do This AFTER First 5 Customers)
 
-### Weekend Project: Full Stripe Integration
+                  ### Weekend Project: Full Stripe Integration
 
-I can help you build:
-- Automated billing dashboard
-- Customer portal where painters manage subscriptions
-- Automatic lead routing system
-- Analytics dashboard
+                  I can help you build:
+                  - Automated billing dashboard
+                  - Customer portal where painters manage subscriptions
+                  - Automatic lead routing system
+                  - Analytics dashboard
 
-**But NOT TODAY.** Today you sell manually.
+                  **But NOT TODAY.** Today you sell manually.
 
----
+                  ---
 
-## CONTINGENCY PLANS
+                  ## CONTINGENCY PLANS
 
-### If Vercel Deploy Fails:
-- Use Netlify instead (same process, works great with Next.js)
-- Or deploy to Namecheap as backup (slower but works)
+                  ### If Vercel Deploy Fails:
+                  - Use Netlify instead (same process, works great with Next.js)
+                  - Or deploy to Namecheap as backup (slower but works)
 
-### If Lead Emails Don't Arrive:
-- Check spam folder first
-- Verify email with FormSubmit.co (they'll send confirmation)
-- Backup: Use Zapier webhook → Google Sheets (free tier)
+                  ### If Lead Emails Don't Arrive:
+                  - Check spam folder first
+                  - Verify email with FormSubmit.co (they'll send confirmation)
+                  - Backup: Use Zapier webhook → Google Sheets (free tier)
 
-### If Stripe Has Issues:
-- Use PayPal invoices temporarily
-- Or take payment via Venmo/Zelle and honor it (build trust)
+                  ### If Stripe Has Issues:
+                  - Use PayPal invoices temporarily
+                  - Or take payment via Venmo/Zelle and honor it (build trust)
 
----
+                  ---
 
-## YOUR IMMEDIATE CHECKLIST (Before 7AM)
+                  ## YOUR IMMEDIATE CHECKLIST (Before 7AM)
 
-- [ ] Push code to GitHub
-- [ ] Deploy to Vercel (10 min)
-- [ ] Test estimate calculator, confirm email arrives
-- [ ] Create Stripe payment links for Pro and Premier
-- [ ] Write down your sales script
-- [ ] Make coffee ☕
-- [ ] START CALLING 🚀
+                  - [ ] Push code to GitHub
+                  - [ ] Deploy to Vercel (10 min)
+                  - [ ] Test estimate calculator, confirm email arrives
+                  - [ ] Create Stripe payment links for Pro and Premier
+                  - [ ] Write down your sales script
+                  - [ ] Make coffee ☕
+                  - [ ] START CALLING 🚀
 
----
+                  ---
 
-## PRICING PSYCHOLOGY FOR YOUR CALLS
+                  ## PRICING PSYCHOLOGY FOR YOUR CALLS
 
-**Anchor high, offer discount:**
-```
-"Our regular pricing is $29 for Pro and $79 for Premier.
+                  **Anchor high, offer discount:**
+                  ```
+                  "Our regular pricing is $29 for Pro and $79 for Premier.
 
-But as a founding member joining in our first week,
-I can offer you the first month FREE, then the regular
-monthly rate after that.
+                  But as a founding member joining in our first week,
+                  I can offer you the first month FREE, then the regular
+                  monthly rate after that.
 
-Plus, if you commit to 6 months, I'll give you 20% off
-the entire 6 months."
-```
+                  Plus, if you commit to 6 months, I'll give you 20% off
+                  the entire 6 months."
+                  ```
 
-**Monthly vs Annual:**
-```
-Monthly:
-- Pro: $29/month
-- Premier: $79/month
+                  **Monthly vs Annual:**
+                  ```
+                  Monthly:
+                  - Pro: $29/month
+                  - Premier: $79/month
 
-Annual (save 20%):
-- Pro: $279/year ($23/month)
-- Premier: $759/year ($63/month)
-```
+                  Annual (save 20%):
+                  - Pro: $279/year ($23/month)
+                  - Premier: $759/year ($63/month)
+                  ```
 
-**Create urgency:**
-```
-"We're only taking 10 founding members at this price.
-After that, we're raising prices to $39 and $99."
-```
+                  **Create urgency:**
+                  ```
+                  "We're only taking 10 founding members at this price.
+                  After that, we're raising prices to $39 and $99."
+                  ```
 
----
+                  ---
 
-## TRACK YOUR METRICS
+                  ## TRACK YOUR METRICS
 
-**Create a simple spreadsheet:**
+                  **Create a simple spreadsheet:**
 
-| Date | Company | Contact | Tier | Status | Monthly $ | Notes |
-|------|---------|---------|------|--------|-----------|-------|
-| 10/14 | Tribble | John | Premier | Paid | $79 | Live tomorrow |
-| 10/14 | Mussio | Mike | Pro | Called | $29 | Following up |
+                  | Date | Company | Contact | Tier | Status | Monthly $ | Notes |
+                  |------|---------|---------|------|--------|-----------|-------|
+                  | 10/14 | Tribble | John | Premier | Paid | $79 | Live tomorrow |
+                  | 10/14 | Mussio | Mike | Pro | Called | $29 | Following up |
 
-**Target for Week 1:**
-- 5 Pro members = $145/month
-- 2 Premier members = $158/month
-- **Total: $303/month recurring**
+                  **Target for Week 1:**
+                  - 5 Pro members = $145/month
+                  - 2 Premier members = $158/month
+                  - **Total: $303/month recurring**
 
-**Target for Month 1:**
-- 10 Pro members = $290/month
-- 5 Premier members = $395/month
-- **Total: $685/month recurring**
+                  **Target for Month 1:**
+                  - 10 Pro members = $290/month
+                  - 5 Premier members = $395/month
+                  - **Total: $685/month recurring**
 
----
+                  ---
 
-## IMPORTANT: Focus on Sales, Not Tech
+                  ## IMPORTANT: Focus on Sales, Not Tech
 
-**Common trap to avoid:**
-- ❌ "I need to build the perfect automated system first"
-- ✅ "I need to close 5 customers, then automate"
+                  **Common trap to avoid:**
+                  - ❌ "I need to build the perfect automated system first"
+                  - ✅ "I need to close 5 customers, then automate"
 
-**Your time TODAY:**
-- 90% making calls and closing deals
-- 10% adding listings and deploying
+                  **Your time TODAY:**
+                  - 90% making calls and closing deals
+                  - 10% adding listings and deploying
 
-**Your time NEXT WEEK (after 5 customers):**
-- 70% more sales calls
-- 20% content creation (blog posts for SEO)
-- 10% automation improvements
+                  **Your time NEXT WEEK (after 5 customers):**
+                  - 70% more sales calls
+                  - 20% content creation (blog posts for SEO)
+                  - 10% automation improvements
 
----
+                  ---
 
-## YOU GOT THIS!
+                  ## YOU GOT THIS!
 
-The tech is done. The site is beautiful. The value prop is solid.
+                  The tech is done. The site is beautiful. The value prop is solid.
 
-Now go sell it.
+                  Now go sell it.
 
-Call every painting company in Ann Arbor.
-Close 5 deals this week.
-Prove the model works.
+                  Call every painting company in Ann Arbor.
+                  Close 5 deals this week.
+                  Prove the model works.
 
-Everything else is just details.
+                  Everything else is just details.
 
-🚀 DEPLOY NOW, SELL BY 7AM
+                  🚀 DEPLOY NOW, SELL BY 7AM
 
-Questions? You know where to find me.
+                  Questions? You know where to find me.
 
----
+                  ---
 
-*Time to deploy: 2:15am*
-*Time to start calling: 7:00am*
-*Hours until launch: 4 hours 45 minutes*
+                  *Time to deploy: 2:15am*
+                  *Time to start calling: 7:00am*
+                  *Hours until launch: 4 hours 45 minutes*
 
-**You got this. Go build your empire.**
+                  **You got this. Go build your empire.**
+                  

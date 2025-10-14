@@ -11,7 +11,7 @@ export interface BlogArticle {
 }
 
 const ArticleContentWrapper: React.FC<{children: React.ReactNode}> = ({ children }) => (
-    <div className="prose prose-lg max-w-none text-gray-700">{children}</div>
+    <div className="prose prose-lg max-w-none text-gray-900">{children}</div>
 );
 
 export const BLOG_ARTICLES: BlogArticle[] = [

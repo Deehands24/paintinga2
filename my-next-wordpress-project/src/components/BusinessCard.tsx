@@ -48,7 +48,7 @@ export default function BusinessCard({ business }: BusinessCardProps) {
           </div>
         )}
 
-        <div className="text-sm text-gray-600 mb-3">
+        <div className="text-sm text-gray-900 mb-3">
           <p className="flex items-center gap-2">
             <svg
               className="w-4 h-4"
@@ -89,7 +89,7 @@ export default function BusinessCard({ business }: BusinessCardProps) {
           </p>
         </div>
 
-        <p className="text-gray-700 text-sm mb-4 line-clamp-3">
+        <p className="text-gray-900 text-sm mb-4 line-clamp-3">
           {business.description}
         </p>
 
@@ -97,13 +97,13 @@ export default function BusinessCard({ business }: BusinessCardProps) {
           {business.services.slice(0, 3).map((service) => (
             <span
               key={service}
-              className="inline-block bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded capitalize"
+              className="inline-block bg-gray-900 text-gray-100 text-xs px-2 py-1 rounded capitalize"
             >
               {service.replace('-', ' ')}
             </span>
           ))}
           {business.services.length > 3 && (
-            <span className="inline-block bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded">
+            <span className="inline-block bg-gray-900 text-gray-100 text-xs px-2 py-1 rounded">
               +{business.services.length - 3} more
             </span>
           )}

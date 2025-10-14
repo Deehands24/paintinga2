@@ -16,26 +16,26 @@ export default function Home() {
           <div className="flex justify-between items-center">
             <div>
               <h1 className="text-3xl font-bold text-blue-600">PaintingA2</h1>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-gray-900">
                 Ann Arbor&apos;s Premier Painting Directory
               </p>
             </div>
             <nav className="hidden md:flex gap-6">
               <Link
                 href="/categories"
-                className="text-gray-700 hover:text-blue-600 font-medium"
+                className="text-gray-900 hover:text-blue-600 font-medium"
               >
                 Categories
               </Link>
               <Link
                 href="/blog"
-                className="text-gray-700 hover:text-blue-600 font-medium"
+                className="text-gray-900 hover:text-blue-600 font-medium"
               >
                 Blog
               </Link>
               <Link
                 href="/articles"
-                className="text-gray-700 hover:text-blue-600 font-medium"
+                className="text-gray-900 hover:text-blue-600 font-medium"
               >
                 Resources
               </Link>
@@ -56,7 +56,7 @@ export default function Home() {
           <h2 className="text-5xl font-bold text-gray-900 mb-4">
             Find Trusted Painters in Ann Arbor
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-900 max-w-3xl mx-auto">
             Connect with verified, professional painting contractors for your
             residential or commercial project. Quality workmanship, guaranteed
             results.
@@ -73,7 +73,7 @@ export default function Home() {
               <h2 className="text-3xl font-bold text-gray-900">
                 Featured Painters
               </h2>
-              <p className="text-gray-600 mt-2">
+              <p className="text-gray-900 mt-2">
                 Top-rated professionals serving the Ann Arbor community
               </p>
             </div>
@@ -115,7 +115,7 @@ export default function Home() {
                 <h3 className="text-xl font-bold text-gray-900 mb-2">
                   {category.name}
                 </h3>
-                <p className="text-gray-600 text-sm">{category.description}</p>
+                <p className="text-gray-900 text-sm">{category.description}</p>
                 <span className="inline-flex items-center mt-4 text-blue-600 font-semibold group-hover:text-blue-700">
                   Explore
                   <svg className="w-5 h-5 ml-1 transform group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -129,7 +129,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-blue-600">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-900">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl font-bold text-white mb-4">
             Are You a Painter?
@@ -199,7 +199,7 @@ export default function Home() {
           </div>
         </div>
         <div className="max-w-7xl mx-auto mt-8 pt-8 border-t border-gray-800 text-center text-gray-400">
-          <p>&copy; 2024 PaintingA2.com. All rights reserved.</p>
+          <p>&copy; 2025 PaintingA2.com. All rights reserved.</p>
         </div>
       </footer>
     </div>
