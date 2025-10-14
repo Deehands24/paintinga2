@@ -23,7 +23,7 @@ const FormInput = ({ label, type, name, value, onChange, placeholder, min, step 
             placeholder={placeholder}
             min={min}
             step={step}
-            className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+            className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
         />
     </div>
 );
@@ -36,7 +36,7 @@ const FormSelect = ({ label, name, value, onChange, options }: {
     options: { value: string, label: string }[];
 }) => (
      <div>
-        <label htmlFor={name} className="block text-sm font-medium text-gray-700">{label}</label>
+        <label htmlFor={name} className="block text-sm font-medium text-gray-900">{label}</label>
         <select
             id={name}
             name={name}
@@ -240,7 +240,7 @@ Source URL: ${leadData.source}
                         <p className="text-gray-800 mt-2 mb-4">Enter your phone or email below to instantly see your project estimate.</p>
                         <div className="space-y-4">
                             <div>
-                                <label htmlFor="phone" className="block text-sm font-medium text-gray-700">Phone Number</label>
+                                <label htmlFor="phone" className="block text-sm font-medium text-gray-900">Phone Number</label>
                                 <input
                                     type="tel"
                                     name="phone"
@@ -289,7 +289,7 @@ Source URL: ${leadData.source}
             <div className="max-w-4xl mx-auto">
                 <div className="text-center mb-8">
                     <h2 className="text-3xl font-bold text-gray-900">Get Your Free Estimate</h2>
-                    <p className="mt-2 text-lg text-gray-600">Instant project cost calculator for your Ann Arbor painting project</p>
+                    <p className="mt-2 text-lg text-gray-900">Instant project cost calculator for your Ann Arbor painting project</p>
                 </div>
 
                 <div className="bg-white p-8 rounded-lg shadow-lg border border-gray-200">
