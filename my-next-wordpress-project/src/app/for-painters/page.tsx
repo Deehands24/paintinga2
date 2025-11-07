@@ -1,14 +1,49 @@
+'use client';
+
 import Link from 'next/link';
 import { pricingTiers } from '@/data/pricing';
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'For Painters - List Your Business | PaintingA2',
-  description:
-    'Grow your painting business with PaintingA2. Get more leads, enhance your online presence, and connect with customers in Ann Arbor, MI.',
-};
+import { useState } from 'react';
 
 export default function ForPaintersPage() {
+  const [loading, setLoading] = useState<string | null>(null);
+
+  const handleCheckout = async (tier: string, priceId: string) => {
+    setLoading(tier);
+    try {
+      const response = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          priceId,
+          tier,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        throw new Error('No checkout URL returned');
+      }
+    } catch (error) {
+      console.error('Checkout error:', error);
+      alert('Failed to start checkout. Please try again.');
+      setLoading(null);
+    }
+  };
+
+  const getPriceId = (tier: string) => {
+    if (tier === 'pro') {
+      return process.env.NEXT_PUBLIC_STRIPE_PRO_PRICE_ID!;
+    }
+    if (tier === 'premier') {
+      return process.env.NEXT_PUBLIC_STRIPE_PREMIER_PRICE_ID!;
+    }
+    return '';
+  };
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
@@ -353,7 +388,18 @@ export default function ForPaintersPage() {
                   </ul>
 
                   <button
-                    className={`w-full py-4 px-6 rounded-lg font-bold transition-colors ${
+                    onClick={() => {
+                      if (tier.tier === 'basic') {
+                        window.location.href = 'mailto:info@paintinga2.com?subject=Claim%20Free%20Listing';
+                      } else {
+                        const priceId = getPriceId(tier.tier);
+                        if (priceId) {
+                          handleCheckout(tier.tier, priceId);
+                        }
+                      }
+                    }}
+                    disabled={loading !== null}
+                    className={`w-full py-4 px-6 rounded-lg font-bold transition-colors disabled:opacity-50 disabled:cursor-not-allowed ${
                       tier.tier === 'premier'
                         ? 'bg-white text-blue-600 hover:bg-blue-50'
                         : tier.tier === 'pro'
@@ -361,7 +407,9 @@ export default function ForPaintersPage() {
                         : 'bg-gray-200 text-gray-900 hover:bg-gray-300'
                     }`}
                   >
-                    {tier.tier === 'basic'
+                    {loading === tier.tier
+                      ? 'Loading...'
+                      : tier.tier === 'basic'
                       ? 'Claim Your Listing'
                       : tier.tier === 'pro'
                       ? 'Get Started'
