@@ -36,7 +36,6 @@ export async function POST(req: NextRequest) {
       },
       allow_promotion_codes: true,
       billing_address_collection: 'required',
-      customer_creation: 'always',
     });
 
     console.log('Checkout session created:', session.id);
