@@ -10,6 +10,8 @@ export default function ForPaintersPage() {
   const handleCheckout = async (tier: string, priceId: string) => {
     setLoading(tier);
     try {
+      console.log('Starting checkout with:', { tier, priceId });
+
       const response = await fetch('/api/checkout', {
         method: 'POST',
         headers: {
@@ -22,6 +24,11 @@ export default function ForPaintersPage() {
       });
 
       const data = await response.json();
+      console.log('Checkout response:', data);
+
+      if (!response.ok) {
+        throw new Error(data.details || data.error || 'Checkout failed');
+      }
 
       if (data.url) {
         window.location.href = data.url;
@@ -30,7 +37,8 @@ export default function ForPaintersPage() {
       }
     } catch (error) {
       console.error('Checkout error:', error);
-      alert('Failed to start checkout. Please try again.');
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      alert(`Failed to start checkout: ${errorMessage}`);
       setLoading(null);
     }
   };

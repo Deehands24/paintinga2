@@ -9,7 +9,10 @@ export async function POST(req: NextRequest) {
   try {
     const { priceId, tier } = await req.json();
 
+    console.log('Checkout request received:', { priceId, tier });
+
     if (!priceId) {
+      console.error('No price ID provided');
       return NextResponse.json(
         { error: 'Price ID is required' },
         { status: 400 }
@@ -36,12 +39,15 @@ export async function POST(req: NextRequest) {
       customer_creation: 'always',
     });
 
+    console.log('Checkout session created:', session.id);
     return NextResponse.json({ url: session.url });
   } catch (error) {
     const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+    const errorStack = error instanceof Error ? error.stack : '';
     console.error('Checkout error:', errorMessage);
+    console.error('Error stack:', errorStack);
     return NextResponse.json(
-      { error: 'Failed to create checkout session' },
+      { error: 'Failed to create checkout session', details: errorMessage },
       { status: 500 }
     );
   }
