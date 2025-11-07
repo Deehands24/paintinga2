@@ -398,7 +398,7 @@ export default function ForPaintersPage() {
                   <button
                     onClick={() => {
                       if (tier.tier === 'basic') {
-                        window.location.href = 'mailto:info@paintinga2.com?subject=Claim%20Free%20Listing';
+                        window.location.href = 'mailto:paintinga2@ges-development.com?subject=Claim%20Free%20Listing';
                       } else {
                         const priceId = getPriceId(tier.tier);
                         if (priceId) {
@@ -438,8 +438,7 @@ export default function ForPaintersPage() {
           </h2>
           <p className="text-xl text-gray-300 mb-8">
             Join the painters who are already growing their business with
-            PaintingA2. Get started today with our risk-free 30-day trial.
-          </p>
+            PaintingA2.com.
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="#pricing"
@@ -448,7 +447,7 @@ export default function ForPaintersPage() {
               View Plans
             </a>
             <a
-              href="mailto:info@paintinga2.com"
+              href="mailto:paintinga2@ges-development.com"
               className="inline-block bg-white text-gray-900 font-bold px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors"
             >
               Contact Us
