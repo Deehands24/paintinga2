@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { pricingTiers } from '@/data/pricing';
 import { useState } from 'react';
+import Logo from '@/components/Logo';
 
 export default function ForPaintersPage() {
   const [loading, setLoading] = useState<string | null>(null);
@@ -58,9 +59,7 @@ export default function ForPaintersPage() {
       <header className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex justify-between items-center">
-            <Link href="/" className="flex items-center">
-              <h1 className="text-2xl font-bold text-blue-600">PaintingA2</h1>
-            </Link>
+            <Logo height={50} width={150} />
             <nav className="flex gap-6">
               <Link href="/" className="text-gray-700 hover:text-blue-600">
                 Home

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { getAllBlogArticles } from '@/data/blog-articles';
 import type { Metadata } from 'next';
+import Logo from '@/components/Logo';
 
 export const metadata: Metadata = {
   title: 'Blog | PaintingA2 - Ann Arbor Painting Tips & Resources',
@@ -16,9 +17,7 @@ export default function BlogIndexPage() {
       <header className="bg-white shadow-sm sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex justify-between items-center">
-            <Link href="/" className="flex items-center">
-              <h1 className="text-2xl font-bold text-blue-600">PaintingA2</h1>
-            </Link>
+            <Logo height={50} width={150} />
             <nav className="flex gap-6">
               <Link href="/" className="text-gray-700 hover:text-blue-600">
                 Home
@@ -144,8 +143,8 @@ export default function BlogIndexPage() {
       <footer className="bg-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8 mt-16">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-2xl font-bold mb-4">PaintingA2</h3>
-            <p className="text-gray-400">
+            <Logo height={50} width={150} />
+            <p className="text-gray-400 mt-4">
               Ann Arbor&apos;s trusted directory for finding professional painting contractors.
             </p>
           </div>

@@ -4,6 +4,7 @@ import BusinessCard from '@/components/BusinessCard';
 import { EstimateCalculator } from '@/components/EstimateCalculator';
 import { getFeaturedBusinesses } from '@/data/businesses';
 import { categories } from '@/data/categories';
+import Logo from '@/components/Logo';
 
 export default function Home() {
   const featuredBusinesses = getFeaturedBusinesses();
@@ -15,8 +16,8 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex justify-between items-center">
             <div>
-              <h1 className="text-3xl font-bold text-blue-600">PaintingA2</h1>
-              <p className="text-sm text-gray-900">
+              <Logo height={60} width={180} />
+              <p className="text-sm text-gray-900 mt-1">
                 Ann Arbor&apos;s Premier Painting Directory
               </p>
             </div>
@@ -151,8 +152,8 @@ export default function Home() {
       <footer className="bg-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-2xl font-bold mb-4">PaintingA2</h3>
-            <p className="text-gray-700">
+            <Logo height={50} width={150} />
+            <p className="text-gray-700 mt-4">
               Ann Arbor&apos;s trusted directory for finding professional painting
               contractors.
             </p>
