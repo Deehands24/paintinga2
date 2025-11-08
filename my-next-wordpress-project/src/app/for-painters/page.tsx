@@ -438,6 +438,7 @@ export default function ForPaintersPage() {
           <p className="text-xl text-gray-300 mb-8">
             Join the painters who are already growing their business with
             PaintingA2.com.
+          </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="#pricing"
