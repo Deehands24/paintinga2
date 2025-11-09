@@ -280,16 +280,13 @@ export default async function ListingPage({ params }: PageProps) {
                 )}
               </div>
 
-              <div className="mt-8 space-y-3">
+              <div className="mt-8">
                 <a
                   href={`tel:${business.phone.replace(/[^0-9]/g, '')}`}
                   className="block w-full bg-blue-600 text-white text-center font-semibold py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors"
                 >
                   Call Now
                 </a>
-                <button className="block w-full bg-white text-blue-600 border-2 border-blue-600 text-center font-semibold py-3 px-4 rounded-lg hover:bg-blue-50 transition-colors">
-                  Request Quote
-                </button>
               </div>
             </div>
           </div>
