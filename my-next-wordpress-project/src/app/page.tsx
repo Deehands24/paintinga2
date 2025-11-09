@@ -3,11 +3,12 @@ import SearchBar from '@/components/SearchBar';
 import BusinessCard from '@/components/BusinessCard';
 import { EstimateCalculator } from '@/components/EstimateCalculator';
 import { getFeaturedBusinesses } from '@/data/businesses';
-import { categories } from '@/data/categories';
+import { getAllBlogArticles } from '@/data/blog-articles';
 import Logo from '@/components/Logo';
 
 export default function Home() {
   const featuredBusinesses = getFeaturedBusinesses();
+  const recentArticles = getAllBlogArticles().slice(0, 3);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
@@ -100,29 +101,53 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Categories Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
+      {/* Recent Articles Section */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
-            Browse by Service
-          </h2>
+          <div className="flex justify-between items-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900">
+              Recent Articles
+            </h2>
+            <Link
+              href="/blog"
+              className="text-blue-600 hover:text-blue-700 font-semibold"
+            >
+              View All →
+            </Link>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {categories.map((category) => (
+            {recentArticles.map((article) => (
               <Link
-                key={category.id}
-                href={`/category/${category.slug}`}
+                key={article.id}
+                href={`/blog/${article.slug}`}
                 className="bg-white rounded-lg shadow-md hover:shadow-2xl transition-all duration-300 p-6 border border-gray-200 hover:border-blue-500 transform hover:-translate-y-2 group"
               >
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
-                  {category.name}
+                <div className="mb-3">
+                  <span className="inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-2 py-1 rounded">
+                    {article.category}
+                  </span>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600">
+                  {article.title}
                 </h3>
-                <p className="text-gray-900 text-sm">{category.description}</p>
-                <span className="inline-flex items-center mt-4 text-blue-600 font-semibold group-hover:text-blue-700">
-                  Explore
-                  <svg className="w-5 h-5 ml-1 transform group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </span>
+                <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+                  {article.strategicPurpose}
+                </p>
+                <div className="flex items-center justify-between">
+                  <span className="text-sm text-gray-500">
+                    {new Date(article.publishedDate).toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric'
+                    })}
+                  </span>
+                  <span className="inline-flex items-center text-blue-600 font-semibold group-hover:text-blue-700">
+                    Read More
+                    <svg className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </span>
+                </div>
               </Link>
             ))}
           </div>
