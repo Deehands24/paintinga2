@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { GoogleAnalytics } from "@/components/Analytics";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,6 +18,11 @@ export const metadata: Metadata = {
   description: "Find trusted, professional painting contractors in Ann Arbor, MI. Browse verified painters for residential, commercial, interior, and exterior projects.",
 };
 
+// REPLACE WITH YOUR GOOGLE ANALYTICS ID
+// Get it from: https://analytics.google.com
+// Looks like: G-XXXXXXXXXX
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || '';
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -24,6 +30,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {GA_MEASUREMENT_ID && <GoogleAnalytics measurementId={GA_MEASUREMENT_ID} />}
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

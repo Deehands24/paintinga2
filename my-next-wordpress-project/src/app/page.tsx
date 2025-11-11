@@ -101,6 +101,29 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Affiliate CTA - Extra Revenue Stream */}
+      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-green-50 to-blue-50">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            Want Multiple Quotes to Compare?
+          </h2>
+          <p className="text-lg text-gray-700 mb-6">
+            Get free estimates from multiple pre-screened painters in minutes. Compare prices, reviews, and availability.
+          </p>
+          <a
+            href="https://www.homeadvisor.com/c.Painting.Ann+Arbor.MI.-12005.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-green-600 text-white font-bold px-8 py-4 rounded-lg hover:bg-green-700 transition-colors text-lg shadow-lg"
+          >
+            Get 3 Free Quotes Now →
+          </a>
+          <p className="text-sm text-gray-600 mt-3">
+            No obligation • Fast & free • Compare and save
+          </p>
+        </div>
+      </section>
+
       {/* Recent Articles Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">

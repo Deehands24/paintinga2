@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { trackLead } from './Analytics';
 
 const FormInput = ({ label, type, name, value, onChange, placeholder, min, step }: {
     label: string;
@@ -160,7 +161,10 @@ Source URL: ${leadData.source}
                     })
                 });
 
-                // For now, log to console (you can view in browser dev tools)
+                // Track lead in Google Analytics
+                trackLead(businessName, estimate);
+
+                // Log to console
                 console.log("✅ Lead captured:", leadData);
 
                 setStep('result');
