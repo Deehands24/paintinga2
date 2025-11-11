@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, Suspense } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 
 // Extend Window interface for gtag
@@ -11,8 +11,8 @@ declare global {
   }
 }
 
-// Google Analytics component
-export function GoogleAnalytics({ measurementId }: { measurementId: string }) {
+// Internal component that uses useSearchParams
+function GoogleAnalyticsInner({ measurementId }: { measurementId: string }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
@@ -29,6 +29,11 @@ export function GoogleAnalytics({ measurementId }: { measurementId: string }) {
     }
   }, [pathname, searchParams, measurementId]);
 
+  return null;
+}
+
+// Wrapper component with Suspense
+export function GoogleAnalytics({ measurementId }: { measurementId: string }) {
   if (!measurementId) return null;
 
   return (
@@ -50,6 +55,9 @@ export function GoogleAnalytics({ measurementId }: { measurementId: string }) {
           `,
         }}
       />
+      <Suspense fallback={null}>
+        <GoogleAnalyticsInner measurementId={measurementId} />
+      </Suspense>
     </>
   );
 }
