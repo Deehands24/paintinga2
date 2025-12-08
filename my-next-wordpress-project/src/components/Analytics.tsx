@@ -90,3 +90,61 @@ export function trackPaymentClick(tier: string) {
     value: tier === 'Premier' ? 79 : 29,
   });
 }
+
+// Track business card clicks (phone, website, etc.)
+export function trackBusinessClick(businessName: string, clickType: 'phone' | 'website' | 'email') {
+  trackEvent('business_click', {
+    event_category: 'Engagement',
+    event_label: `${businessName} - ${clickType}`,
+    business_name: businessName,
+    click_type: clickType,
+  });
+}
+
+// Track search queries
+export function trackSearch(query: string, category?: string) {
+  trackEvent('search', {
+    event_category: 'Search',
+    search_term: query,
+    ...(category && { category }),
+  });
+}
+
+// Track category filtering
+export function trackCategoryFilter(category: string) {
+  trackEvent('category_filter', {
+    event_category: 'Navigation',
+    event_label: category,
+    category,
+  });
+}
+
+// Track affiliate link clicks
+export function trackAffiliateClick(partner: string, location: string) {
+  trackEvent('affiliate_click', {
+    event_category: 'Revenue',
+    event_label: `${partner} - ${location}`,
+    partner,
+    location,
+  });
+}
+
+// Track blog article engagement
+export function trackArticleRead(articleTitle: string, scrollDepth?: number) {
+  trackEvent('article_read', {
+    event_category: 'Content',
+    event_label: articleTitle,
+    article_title: articleTitle,
+    ...(scrollDepth && { scroll_depth: scrollDepth }),
+  });
+}
+
+// Track estimate calculator step completion
+export function trackCalculatorStep(step: number, stepName: string) {
+  trackEvent('calculator_step', {
+    event_category: 'Lead Generation',
+    event_label: `Step ${step}: ${stepName}`,
+    step,
+    step_name: stepName,
+  });
+}
