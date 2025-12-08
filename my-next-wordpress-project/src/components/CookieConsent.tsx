@@ -22,10 +22,6 @@ export function CookieConsent() {
   const declineCookies = () => {
     localStorage.setItem('cookie-consent', 'declined');
     setShowBanner(false);
-    // Optionally: disable Google Analytics if user declines
-    if (typeof window !== 'undefined' && (window as any)['ga-disable-' + process.env.NEXT_PUBLIC_GA_ID]) {
-      (window as any)['ga-disable-' + process.env.NEXT_PUBLIC_GA_ID] = true;
-    }
   };
 
   if (!showBanner) {
@@ -37,7 +33,7 @@ export function CookieConsent() {
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex-1">
           <p className="text-sm">
-            We use cookies to improve your experience and analyze site traffic. By clicking "Accept", you consent to our use of cookies.{' '}
+            We use cookies to improve your experience and analyze site traffic. By clicking &quot;Accept&quot;, you consent to our use of cookies.{' '}
             <Link href="/privacy" className="underline hover:text-blue-400">
               Learn more
             </Link>
