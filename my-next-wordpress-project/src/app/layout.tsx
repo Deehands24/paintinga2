@@ -30,12 +30,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        {GA_MEASUREMENT_ID && <GoogleAnalytics measurementId={GA_MEASUREMENT_ID} />}
-      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        {GA_MEASUREMENT_ID && <GoogleAnalytics measurementId={GA_MEASUREMENT_ID} />}
         {children}
       </body>
     </html>

@@ -1,5 +1,6 @@
 'use client';
 
+import Script from 'next/script';
 import { useEffect, Suspense } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 
@@ -11,8 +12,8 @@ declare global {
   }
 }
 
-// Internal component that uses useSearchParams
-function GoogleAnalyticsInner({ measurementId }: { measurementId: string }) {
+// Page tracking component that uses useSearchParams
+function PageViewTracker({ measurementId }: { measurementId: string }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
@@ -32,18 +33,19 @@ function GoogleAnalyticsInner({ measurementId }: { measurementId: string }) {
   return null;
 }
 
-// Wrapper component with Suspense
+// Google Analytics component
 export function GoogleAnalytics({ measurementId }: { measurementId: string }) {
   if (!measurementId) return null;
 
   return (
     <>
-      <script
-        async
+      <Script
+        strategy="afterInteractive"
         src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}
       />
-      <script
+      <Script
         id="google-analytics"
+        strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
@@ -56,7 +58,7 @@ export function GoogleAnalytics({ measurementId }: { measurementId: string }) {
         }}
       />
       <Suspense fallback={null}>
-        <GoogleAnalyticsInner measurementId={measurementId} />
+        <PageViewTracker measurementId={measurementId} />
       </Suspense>
     </>
   );
