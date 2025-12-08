@@ -81,7 +81,7 @@ export default function PricingPage() {
             Simple, Transparent Pricing
           </h1>
           <p className="mt-4 text-xl text-gray-600">
-            Choose the plan that's right for your painting business
+            Choose the plan that&apos;s right for your painting business
           </p>
           <div className="mt-4 inline-flex items-center px-4 py-2 bg-green-100 text-green-800 rounded-full">
             <span className="text-sm font-medium">
@@ -183,8 +183,8 @@ export default function PricingPage() {
                 Can I cancel anytime?
               </h3>
               <p className="mt-2 text-gray-600">
-                Yes, cancel anytime. No contracts, no cancellation fees. We're
-                confident you'll love the leads we generate.
+                Yes, cancel anytime. No contracts, no cancellation fees. We&apos;re
+                confident you&apos;ll love the leads we generate.
               </p>
             </div>
             <div>
@@ -192,8 +192,8 @@ export default function PricingPage() {
                 Do you take a percentage of leads?
               </h3>
               <p className="mt-2 text-gray-600">
-                No! It's just a flat monthly fee. All leads go directly to you,
-                we don't take a cut of your jobs.
+                No! It&apos;s just a flat monthly fee. All leads go directly to you,
+                we don&apos;t take a cut of your jobs.
               </p>
             </div>
             <div>
@@ -201,7 +201,7 @@ export default function PricingPage() {
                 Can I upgrade my plan later?
               </h3>
               <p className="mt-2 text-gray-600">
-                Easy! Just contact us and we'll upgrade you immediately. Your
+                Easy! Just contact us and we&apos;ll upgrade you immediately. Your
                 billing will be prorated automatically.
               </p>
             </div>
@@ -211,4 +211,3 @@ export default function PricingPage() {
     </div>
   );
 }
-

@@ -3,12 +3,12 @@ import { loadStripe } from '@stripe/stripe-js';
 
 // Server-side Stripe instance
 export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2024-12-18.acacia',
+  apiVersion: '2025-09-30.clover',
   typescript: true,
 });
 
 // Client-side Stripe instance
-let stripePromise: Promise<any> | null = null;
+let stripePromise: ReturnType<typeof loadStripe> | null = null;
 export const getStripe = () => {
   if (!stripePromise) {
     stripePromise = loadStripe(
@@ -17,4 +17,3 @@ export const getStripe = () => {
   }
   return stripePromise;
 };
-

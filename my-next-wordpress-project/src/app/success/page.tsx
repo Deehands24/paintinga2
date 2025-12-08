@@ -55,7 +55,7 @@ export default function SuccessPage() {
 
         {/* Description */}
         <p className="mt-4 text-gray-600">
-          Your subscription is now active. We're excited to help you grow your
+          Your subscription is now active. We&apos;re excited to help you grow your
           painting business!
         </p>
 
@@ -83,7 +83,7 @@ export default function SuccessPage() {
               <span className="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs font-semibold mr-3">
                 3
               </span>
-              <span>We'll have your profile live within 24 hours</span>
+              <span>We&apos;ll have your profile live within 24 hours</span>
             </li>
           </ol>
         </div>
@@ -127,4 +127,3 @@ export default function SuccessPage() {
     </div>
   );
 }
-
