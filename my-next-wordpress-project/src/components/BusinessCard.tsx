@@ -8,25 +8,28 @@ interface BusinessCardProps {
 export default function BusinessCard({ business }: BusinessCardProps) {
   return (
     <Link href={`/listings/${business.slug}`} className="block group">
-      <div className="bg-white rounded-lg shadow-md hover:shadow-2xl transition-all duration-300 p-6 h-full border border-gray-200 hover:border-blue-500 transform hover:-translate-y-2">
-        <div className="flex justify-between items-start mb-3">
-          <div className="flex-1">
-            <h3 className="text-xl font-bold text-gray-900 hover:text-blue-600 mb-1">
-              {business.name}
-            </h3>
-            {business.featured && (
-              <span className="inline-block bg-yellow-100 text-yellow-800 text-xs font-semibold px-2 py-1 rounded">
-                Featured
-              </span>
+      <div className="gradient-card rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-6 h-full border border-gray-100 hover:border-umich-maize transform hover:-translate-y-2 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-yellow-50 to-transparent rounded-bl-full opacity-50"></div>
+        <div className="relative z-10">
+          <div className="flex justify-between items-start mb-3">
+            <div className="flex-1">
+              <h3 className="text-xl font-bold text-gray-900 group-hover:text-umich-navy mb-1 transition-colors">
+                {business.name}
+              </h3>
+              {business.featured && (
+                <span className="inline-block bg-umich-maize text-umich-navy text-xs font-semibold px-3 py-1 rounded-full shadow-sm">
+                  ⭐ Featured
+                </span>
+              )}
+            </div>
+            {business.bbbRating && (
+              <div className="ml-4">
+                <div className="bg-umich-navy text-umich-maize text-xs font-bold px-3 py-1.5 rounded-lg shadow-md">
+                  BBB {business.bbbRating}
+                </div>
+              </div>
             )}
           </div>
-          {business.bbbRating && (
-            <div className="ml-4">
-              <div className="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">
-                BBB {business.bbbRating}
-              </div>
-            </div>
-          )}
         </div>
 
         {business.verified && (
@@ -93,17 +96,17 @@ export default function BusinessCard({ business }: BusinessCardProps) {
           {business.description}
         </p>
 
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2 relative z-10">
           {business.services.slice(0, 3).map((service) => (
             <span
               key={service}
-              className="inline-block bg-gray-900 text-gray-100 text-xs px-2 py-1 rounded capitalize"
+              className="inline-block bg-umich-navy text-white text-xs px-3 py-1.5 rounded-lg capitalize font-medium"
             >
               {service.replace('-', ' ')}
             </span>
           ))}
           {business.services.length > 3 && (
-            <span className="inline-block bg-gray-900 text-gray-100 text-xs px-2 py-1 rounded">
+            <span className="inline-block bg-umich-maize text-umich-navy text-xs px-3 py-1.5 rounded-lg font-medium">
               +{business.services.length - 3} more
             </span>
           )}

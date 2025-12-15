@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { pricingTiers } from '@/data/pricing';
 import { useState } from 'react';
-import Logo from '@/components/Logo';
+import Image from 'next/image';
 
 export default function ForPaintersPage() {
   const [loading, setLoading] = useState<string | null>(null);
@@ -54,19 +54,19 @@ export default function ForPaintersPage() {
     return '';
   };
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen gradient-subtle">
       {/* Header */}
-      <header className="bg-white shadow-sm">
+      <header className="bg-umich-navy shadow-md border-b-4 border-umich-maize">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex justify-between items-center">
-            <Logo height={50} width={150} />
+            <h1 className="text-2xl font-bold text-umich-maize">PaintingA2</h1>
             <nav className="flex gap-6">
-              <Link href="/" className="text-gray-700 hover:text-blue-600">
+              <Link href="/" className="text-white hover:text-umich-maize font-medium transition-colors">
                 Home
               </Link>
               <Link
                 href="/listings"
-                className="text-gray-700 hover:text-blue-600"
+                className="text-white hover:text-umich-maize font-medium transition-colors"
               >
                 Browse Painters
               </Link>
@@ -76,18 +76,26 @@ export default function ForPaintersPage() {
       </header>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-b from-blue-600 to-blue-700 text-white py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">
+      <section className="gradient-navy text-white py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <div className="absolute right-0 top-0 bottom-0 w-1/3 opacity-15 hidden lg:block">
+          <Image
+            src="/paintinga2vana.jpeg"
+            alt="Professional painters"
+            fill
+            className="object-cover"
+          />
+        </div>
+        <div className="max-w-5xl mx-auto text-center relative z-10">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 drop-shadow-lg text-umich-maize">
             Grow Your Painting Business in Ann Arbor
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-blue-100">
+          <p className="text-xl md:text-2xl mb-8 text-white">
             Join PaintingA2 and connect with homeowners and businesses actively
             searching for professional painting services.
           </p>
           <a
             href="#pricing"
-            className="inline-block bg-white text-blue-600 font-bold px-8 py-4 rounded-lg hover:bg-blue-50 transition-colors text-lg"
+            className="inline-block bg-umich-maize text-umich-navy font-bold px-8 py-4 rounded-lg hover:bg-yellow-400 transition-all text-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
           >
             View Pricing Plans
           </a>
@@ -95,16 +103,16 @@ export default function ForPaintersPage() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 gradient-section">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">
             Why List Your Business on PaintingA2?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <div className="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+            <div className="bg-white p-8 rounded-lg shadow-md border-l-4 border-umich-maize">
+              <div className="w-16 h-16 bg-yellow-100 rounded-lg flex items-center justify-center mb-6">
                 <svg
-                  className="w-8 h-8 text-blue-600"
+                  className="w-8 h-8 text-umich-navy"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -127,10 +135,10 @@ export default function ForPaintersPage() {
               </p>
             </div>
 
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <div className="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+            <div className="bg-white p-8 rounded-lg shadow-md border-l-4 border-umich-maize">
+              <div className="w-16 h-16 bg-yellow-100 rounded-lg flex items-center justify-center mb-6">
                 <svg
-                  className="w-8 h-8 text-blue-600"
+                  className="w-8 h-8 text-umich-navy"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -159,10 +167,10 @@ export default function ForPaintersPage() {
               </p>
             </div>
 
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <div className="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+            <div className="bg-white p-8 rounded-lg shadow-md border-l-4 border-umich-maize">
+              <div className="w-16 h-16 bg-yellow-100 rounded-lg flex items-center justify-center mb-6">
                 <svg
-                  className="w-8 h-8 text-blue-600"
+                  className="w-8 h-8 text-umich-navy"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -184,10 +192,10 @@ export default function ForPaintersPage() {
               </p>
             </div>
 
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <div className="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+            <div className="bg-white p-8 rounded-lg shadow-md border-l-4 border-umich-maize">
+              <div className="w-16 h-16 bg-yellow-100 rounded-lg flex items-center justify-center mb-6">
                 <svg
-                  className="w-8 h-8 text-blue-600"
+                  className="w-8 h-8 text-umich-navy"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -210,10 +218,10 @@ export default function ForPaintersPage() {
               </p>
             </div>
 
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <div className="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+            <div className="bg-white p-8 rounded-lg shadow-md border-l-4 border-umich-maize">
+              <div className="w-16 h-16 bg-yellow-100 rounded-lg flex items-center justify-center mb-6">
                 <svg
-                  className="w-8 h-8 text-blue-600"
+                  className="w-8 h-8 text-umich-navy"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -235,10 +243,10 @@ export default function ForPaintersPage() {
               </p>
             </div>
 
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <div className="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+            <div className="bg-white p-8 rounded-lg shadow-md border-l-4 border-umich-maize">
+              <div className="w-16 h-16 bg-yellow-100 rounded-lg flex items-center justify-center mb-6">
                 <svg
-                  className="w-8 h-8 text-blue-600"
+                  className="w-8 h-8 text-umich-navy"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -281,13 +289,13 @@ export default function ForPaintersPage() {
                 key={tier.tier}
                 className={`rounded-2xl shadow-xl ${
                   tier.tier === 'premier'
-                    ? 'bg-gradient-to-b from-blue-600 to-blue-700 text-white ring-4 ring-blue-600 ring-offset-4'
-                    : 'bg-white'
+                    ? 'bg-gradient-to-b from-umich-navy to-[#00274C] text-white ring-4 ring-umich-maize ring-offset-4'
+                    : 'bg-white border-2 border-gray-200'
                 } ${tier.tier === 'premier' ? 'transform scale-105' : ''}`}
               >
                 <div className="p-8">
                   {tier.tier === 'premier' && (
-                    <div className="inline-block bg-yellow-400 text-gray-900 text-sm font-bold px-3 py-1 rounded-full mb-4">
+                    <div className="inline-block bg-umich-maize text-umich-navy text-sm font-bold px-3 py-1 rounded-full mb-4">
                       MOST POPULAR
                     </div>
                   )}
@@ -330,7 +338,7 @@ export default function ForPaintersPage() {
                         <p
                           className={`mt-1 ${
                             tier.tier === 'premier'
-                              ? 'text-blue-100'
+                              ? 'text-gray-300'
                               : 'text-gray-600'
                           }`}
                         >
@@ -348,7 +356,7 @@ export default function ForPaintersPage() {
                           <svg
                             className={`w-6 h-6 flex-shrink-0 ${
                               tier.tier === 'premier'
-                                ? 'text-yellow-400'
+                                ? 'text-umich-maize'
                                 : 'text-green-500'
                             }`}
                             fill="currentColor"
@@ -408,9 +416,9 @@ export default function ForPaintersPage() {
                     disabled={loading !== null}
                     className={`w-full py-4 px-6 rounded-lg font-bold transition-colors disabled:opacity-50 disabled:cursor-not-allowed ${
                       tier.tier === 'premier'
-                        ? 'bg-white text-blue-600 hover:bg-blue-50'
+                        ? 'bg-umich-maize text-umich-navy hover:bg-yellow-400'
                         : tier.tier === 'pro'
-                        ? 'bg-blue-600 text-white hover:bg-blue-700'
+                        ? 'bg-umich-navy text-white hover:bg-opacity-90'
                         : 'bg-gray-200 text-gray-900 hover:bg-gray-300'
                     }`}
                   >
@@ -430,25 +438,33 @@ export default function ForPaintersPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gray-900 text-white py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-6">
+      <section className="bg-umich-navy border-t-4 border-umich-maize text-white py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <div className="absolute left-0 top-0 bottom-0 w-1/4 opacity-10 hidden lg:block">
+          <Image
+            src="/paintinga2van1).jpeg"
+            alt="Painters working"
+            fill
+            className="object-cover"
+          />
+        </div>
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <h2 className="text-4xl font-bold mb-6 text-umich-maize">
             Ready to Grow Your Business?
           </h2>
-          <p className="text-xl text-gray-300 mb-8">
+          <p className="text-xl text-gray-200 mb-8">
             Join the painters who are already growing their business with
             PaintingA2.com.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="#pricing"
-              className="inline-block bg-blue-600 text-white font-bold px-8 py-4 rounded-lg hover:bg-blue-700 transition-colors"
+              className="inline-block bg-umich-maize text-umich-navy font-bold px-8 py-4 rounded-lg hover:bg-yellow-400 transition-colors shadow-lg"
             >
               View Plans
             </a>
             <a
               href="mailto:paintinga2@ges-development.com"
-              className="inline-block bg-white text-gray-900 font-bold px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors"
+              className="inline-block bg-white text-umich-navy font-bold px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors shadow-lg"
             >
               Contact Us
             </a>
@@ -457,15 +473,15 @@ export default function ForPaintersPage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+      <footer className="bg-gray-50 border-t-4 border-umich-maize py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center text-gray-600">
-          <p>&copy; 2024 PaintingA2.com. All rights reserved.</p>
+          <p>&copy; 2025 PaintingA2.com. All rights reserved.</p>
           <p className="mt-2">
-            <Link href="/" className="hover:text-blue-600">
+            <Link href="/" className="hover:text-umich-navy">
               Home
             </Link>
             {' | '}
-            <Link href="/listings" className="hover:text-blue-600">
+            <Link href="/listings" className="hover:text-umich-navy">
               Browse Painters
             </Link>
           </p>
