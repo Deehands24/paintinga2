@@ -9,7 +9,6 @@ export const businesses: Business[] = [
     address: 'Ann Arbor',
     city: 'Ann Arbor',
     state: 'MI',
-    bbbRating: 'A+',
     description:
       'With over 30 years of experience serving the Ann Arbor area, Tribble Painting has built a formidable reputation for excellence. Consistently earning 5-star reviews, clients frequently praise the team\'s professionalism, communication, and meticulous attention to detail. Tribble Painting offers a comprehensive suite of services, including interior, exterior, commercial, and specialized kitchen cabinet painting. The crew is known for punctuality, thorough prep work, and clean job sites.',
     services: ['interior', 'exterior', 'commercial', 'cabinets'],
@@ -43,7 +42,6 @@ export const businesses: Business[] = [
     address: 'Ann Arbor',
     city: 'Ann Arbor',
     state: 'MI',
-    bbbRating: 'A+',
     description:
       'For projects that extend beyond a simple coat of paint, Wolverine Custom Painting is a frequently recommended choice. Their portfolio includes not just painting but also complete renovations, cabinet installation, and even electrical work, making them a versatile contractor for more complex home improvement projects. With over two decades of experience, they are known for their high-quality craftsmanship and integrity.',
     services: ['residential', 'commercial', 'interior', 'exterior', 'cabinets'],
@@ -191,9 +189,8 @@ export const businesses: Business[] = [
     address: 'Ann Arbor',
     city: 'Ann Arbor',
     state: 'MI',
-    bbbRating: 'A+',
     description:
-      'Collum Painting III, LLC is a trusted painting contractor providing quality services to the Ann Arbor community. With an A+ BBB rating, they are known for professional service and attention to detail.',
+      'Collum Painting III, LLC is a trusted painting contractor providing quality services to the Ann Arbor community. They are known for professional service and attention to detail.',
     services: ['residential', 'commercial', 'interior', 'exterior'],
     tier: 'basic',
     verified: true,
