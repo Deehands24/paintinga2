@@ -29,12 +29,12 @@ export function CookieConsent() {
   }
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 shadow-lg z-50 border-t-4 border-blue-600">
+    <div className="fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 shadow-lg z-50 border-t-4 border-umich-navy">
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex-1">
           <p className="text-sm">
             We use cookies to improve your experience and analyze site traffic. By clicking &quot;Accept&quot;, you consent to our use of cookies.{' '}
-            <Link href="/privacy" className="underline hover:text-blue-400">
+            <Link href="/privacy" className="underline hover:text-umich-maize">
               Learn more
             </Link>
           </p>
@@ -48,7 +48,7 @@ export function CookieConsent() {
           </button>
           <button
             onClick={acceptCookies}
-            className="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-sm font-medium transition-colors"
+            className="px-4 py-2 bg-umich-navy hover:bg-umich-navy rounded-lg text-sm font-medium transition-colors"
           >
             Accept
           </button>

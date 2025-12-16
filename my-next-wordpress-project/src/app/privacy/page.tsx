@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Metadata } from 'next';
-import Logo from '@/components/Logo';
+import PageHeader from '@/components/PageHeader';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
@@ -10,19 +10,11 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex justify-between items-center">
-            <Link href="/">
-              <Logo height={50} width={150} />
-            </Link>
-            <Link href="/" className="text-blue-600 hover:text-blue-700 font-medium">
-              Back to Home
-            </Link>
-          </div>
-        </div>
-      </header>
+      <PageHeader
+        navLinks={[
+          { href: '/', label: 'Back to Home' }
+        ]}
+      />
 
       {/* Content */}
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -118,12 +110,12 @@ export default function PrivacyPage() {
 
             <h3 className="text-xl font-semibold text-gray-800 mb-3">Stripe</h3>
             <p className="text-gray-700 mb-4">
-              We use Stripe for payment processing. When you make a payment, Stripe collects your payment information directly. We do not store your full credit card information on our servers. Stripe's privacy policy can be found at <a href="https://stripe.com/privacy" className="text-blue-600 hover:underline">stripe.com/privacy</a>.
+              We use Stripe for payment processing. When you make a payment, Stripe collects your payment information directly. We do not store your full credit card information on our servers. Stripe's privacy policy can be found at <a href="https://stripe.com/privacy" className="text-umich-navy hover:underline">stripe.com/privacy</a>.
             </p>
 
             <h3 className="text-xl font-semibold text-gray-800 mb-3">FormSubmit</h3>
             <p className="text-gray-700 mb-4">
-              We use FormSubmit.co to process estimate calculator submissions. Information submitted through our estimate forms is sent via FormSubmit to our email address. FormSubmit's privacy policy can be found at <a href="https://formsubmit.co/privacy" className="text-blue-600 hover:underline">formsubmit.co/privacy</a>.
+              We use FormSubmit.co to process estimate calculator submissions. Information submitted through our estimate forms is sent via FormSubmit to our email address. FormSubmit's privacy policy can be found at <a href="https://formsubmit.co/privacy" className="text-umich-navy hover:underline">formsubmit.co/privacy</a>.
             </p>
           </section>
 
@@ -159,7 +151,7 @@ export default function PrivacyPage() {
               <li>The right to data portability</li>
             </ul>
             <p className="text-gray-700 mb-4">
-              To exercise these rights, please contact us at <a href="mailto:paintinga2@ges-development.com" className="text-blue-600 hover:underline">paintinga2@ges-development.com</a>.
+              To exercise these rights, please contact us at <a href="mailto:paintinga2@ges-development.com" className="text-umich-navy hover:underline">paintinga2@ges-development.com</a>.
             </p>
           </section>
 
@@ -183,8 +175,8 @@ export default function PrivacyPage() {
               If you have questions about this Privacy Policy, please contact us:
             </p>
             <p className="text-gray-700">
-              <strong>Email:</strong> <a href="mailto:paintinga2@ges-development.com" className="text-blue-600 hover:underline">paintinga2@ges-development.com</a><br />
-              <strong>Website:</strong> <a href="https://paintinga2.com" className="text-blue-600 hover:underline">paintinga2.com</a>
+              <strong>Email:</strong> <a href="mailto:paintinga2@ges-development.com" className="text-umich-navy hover:underline">paintinga2@ges-development.com</a><br />
+              <strong>Website:</strong> <a href="https://paintinga2.com" className="text-umich-navy hover:underline">paintinga2.com</a>
             </p>
           </section>
         </div>
@@ -194,13 +186,13 @@ export default function PrivacyPage() {
       <footer className="bg-gray-50 py-8 px-4 sm:px-6 lg:px-8 mt-12">
         <div className="max-w-7xl mx-auto text-center">
           <div className="flex justify-center gap-8 mb-4">
-            <Link href="/privacy" className="text-blue-600 hover:underline">
+            <Link href="/privacy" className="text-umich-navy hover:underline">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="text-blue-600 hover:underline">
+            <Link href="/terms" className="text-umich-navy hover:underline">
               Terms of Service
             </Link>
-            <Link href="/" className="text-blue-600 hover:underline">
+            <Link href="/" className="text-umich-navy hover:underline">
               Home
             </Link>
           </div>

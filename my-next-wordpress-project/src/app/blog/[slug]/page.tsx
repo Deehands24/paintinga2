@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getBlogArticleBySlug, getAllBlogArticles } from '@/data/blog-articles';
 import type { Metadata } from 'next';
-import Logo from '@/components/Logo';
+import PageHeader from '@/components/PageHeader';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -46,32 +46,21 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-      <header className="bg-white shadow-sm sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex justify-between items-center">
-            <Logo height={50} width={150} />
-            <nav className="flex gap-6">
-              <Link href="/" className="text-gray-700 hover:text-blue-600">
-                Home
-              </Link>
-              <Link href="/blog" className="text-gray-700 hover:text-blue-600">
-                Blog
-              </Link>
-              <Link href="/listings" className="text-gray-700 hover:text-blue-600">
-                Listings
-              </Link>
-            </nav>
-          </div>
-        </div>
-      </header>
+      <PageHeader
+        navLinks={[
+          { href: '/', label: 'Home' },
+          { href: '/blog', label: 'Blog' },
+          { href: '/listings', label: 'Listings' }
+        ]}
+      />
 
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Breadcrumb */}
         <nav className="mb-8 text-sm">
           <ol className="flex items-center space-x-2 text-gray-600">
-            <li><Link href="/" className="hover:text-blue-600">Home</Link></li>
+            <li><Link href="/" className="hover:text-umich-navy">Home</Link></li>
             <li>/</li>
-            <li><Link href="/blog" className="hover:text-blue-600">Blog</Link></li>
+            <li><Link href="/blog" className="hover:text-umich-navy">Blog</Link></li>
             <li>/</li>
             <li className="text-gray-900 font-medium">{article.title}</li>
           </ol>
@@ -80,7 +69,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         {/* Article Header */}
         <article className="bg-white rounded-lg shadow-lg p-8 md:p-12 mb-12">
           <div className="mb-8">
-            <span className="inline-block bg-blue-100 text-blue-800 text-sm font-semibold px-3 py-1 rounded-full mb-4">
+            <span className="inline-block bg-yellow-100 text-umich-navy text-sm font-semibold px-3 py-1 rounded-full mb-4">
               {article.category}
             </span>
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -107,16 +96,16 @@ export default async function BlogPostPage({ params }: PageProps) {
         </article>
 
         {/* CTA Section */}
-        <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg shadow-xl p-8 text-center mb-12">
+        <div className="bg-gradient-to-r from-umich-navy to-umich-navy rounded-lg shadow-xl p-8 text-center mb-12">
           <h2 className="text-3xl font-bold text-white mb-4">
             Ready to Start Your Project?
           </h2>
-          <p className="text-xl text-blue-100 mb-6">
+          <p className="text-xl text-gray-200 mb-6">
             Browse our directory of trusted Ann Arbor painting professionals
           </p>
           <Link
             href="/listings"
-            className="inline-block bg-white text-blue-600 font-bold px-8 py-4 rounded-lg hover:bg-blue-50 transition-colors text-lg shadow-lg"
+            className="inline-block bg-white text-umich-navy font-bold px-8 py-4 rounded-lg hover:bg-yellow-50 transition-colors text-lg shadow-lg"
           >
             Find a Painter
           </Link>
@@ -133,12 +122,12 @@ export default async function BlogPostPage({ params }: PageProps) {
                 <Link
                   key={relatedArticle.id}
                   href={`/blog/${relatedArticle.slug}`}
-                  className="bg-white rounded-lg shadow-md hover:shadow-2xl transition-all duration-300 p-6 border border-gray-200 hover:border-blue-500 transform hover:-translate-y-2 group"
+                  className="bg-white rounded-lg shadow-md hover:shadow-2xl transition-all duration-300 p-6 border border-gray-200 hover:border-umich-navy transform hover:-translate-y-2 group"
                 >
-                  <span className="inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-2 py-1 rounded-full mb-3">
+                  <span className="inline-block bg-yellow-100 text-umich-navy text-xs font-semibold px-2 py-1 rounded-full mb-3">
                     {relatedArticle.category}
                   </span>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-600">
+                  <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-umich-navy">
                     {relatedArticle.title}
                   </h3>
                   <p className="text-sm text-gray-600">

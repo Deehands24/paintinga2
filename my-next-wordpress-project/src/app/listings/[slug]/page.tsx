@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { getBusinessBySlug, businesses } from '@/data/businesses';
 import { EstimateCalculator } from '@/components/EstimateCalculator';
 import type { Metadata } from 'next';
-import Logo from '@/components/Logo';
+import PageHeader from '@/components/PageHeader';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -41,25 +41,12 @@ export default async function ListingPage({ params }: PageProps) {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex justify-between items-center">
-            <Logo height={50} width={150} />
-            <nav className="flex gap-6">
-              <Link href="/" className="text-gray-700 hover:text-blue-600">
-                Home
-              </Link>
-              <Link
-                href="/listings"
-                className="text-gray-700 hover:text-blue-600"
-              >
-                All Listings
-              </Link>
-            </nav>
-          </div>
-        </div>
-      </header>
+      <PageHeader
+        navLinks={[
+          { href: '/', label: 'Home' },
+          { href: '/listings', label: 'All Listings' }
+        ]}
+      />
 
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -67,13 +54,13 @@ export default async function ListingPage({ params }: PageProps) {
         <nav className="mb-6 text-sm">
           <ol className="flex items-center space-x-2 text-gray-600">
             <li>
-              <Link href="/" className="hover:text-blue-600">
+              <Link href="/" className="hover:text-umich-navy">
                 Home
               </Link>
             </li>
             <li>/</li>
             <li>
-              <Link href="/listings" className="hover:text-blue-600">
+              <Link href="/listings" className="hover:text-umich-navy">
                 Listings
               </Link>
             </li>
@@ -122,7 +109,7 @@ export default async function ListingPage({ params }: PageProps) {
                       </span>
                     )}
                     {business.bbbRating && (
-                      <span className="inline-flex items-center bg-blue-100 text-blue-800 text-sm font-semibold px-3 py-1 rounded-full">
+                      <span className="inline-flex items-center bg-yellow-100 text-umich-navy text-sm font-semibold px-3 py-1 rounded-full">
                         BBB {business.bbbRating}
                       </span>
                     )}
@@ -165,10 +152,10 @@ export default async function ListingPage({ params }: PageProps) {
                 {business.services.map((service) => (
                   <div
                     key={service}
-                    className="flex items-center gap-2 p-3 bg-blue-50 rounded-lg"
+                    className="flex items-center gap-2 p-3 bg-yellow-50 rounded-lg"
                   >
                     <svg
-                      className="w-5 h-5 text-blue-600 flex-shrink-0"
+                      className="w-5 h-5 text-umich-navy flex-shrink-0"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >
@@ -212,7 +199,7 @@ export default async function ListingPage({ params }: PageProps) {
                     <p className="text-sm text-gray-600 mb-1">Phone</p>
                     <a
                       href={`tel:${business.phone.replace(/[^0-9]/g, '')}`}
-                      className="text-lg font-semibold text-blue-600 hover:text-blue-700"
+                      className="text-lg font-semibold text-umich-navy hover:text-umich-navy"
                     >
                       {business.phone}
                     </a>
@@ -271,7 +258,7 @@ export default async function ListingPage({ params }: PageProps) {
                         href={business.website}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="font-medium text-blue-600 hover:text-blue-700"
+                        className="font-medium text-umich-navy hover:text-umich-navy"
                       >
                         Visit Website
                       </a>
@@ -283,7 +270,7 @@ export default async function ListingPage({ params }: PageProps) {
               <div className="mt-8">
                 <a
                   href={`tel:${business.phone.replace(/[^0-9]/g, '')}`}
-                  className="block w-full bg-blue-600 text-white text-center font-semibold py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors"
+                  className="block w-full bg-umich-navy text-white text-center font-semibold py-3 px-4 rounded-lg hover:bg-umich-navy transition-colors"
                 >
                   Call Now
                 </a>

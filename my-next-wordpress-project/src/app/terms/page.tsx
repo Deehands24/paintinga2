@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Metadata } from 'next';
-import Logo from '@/components/Logo';
+import PageHeader from '@/components/PageHeader';
 
 export const metadata: Metadata = {
   title: 'Terms of Service',
@@ -10,19 +10,11 @@ export const metadata: Metadata = {
 export default function TermsPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex justify-between items-center">
-            <Link href="/">
-              <Logo height={50} width={150} />
-            </Link>
-            <Link href="/" className="text-blue-600 hover:text-blue-700 font-medium">
-              Back to Home
-            </Link>
-          </div>
-        </div>
-      </header>
+      <PageHeader
+        navLinks={[
+          { href: '/', label: 'Back to Home' }
+        ]}
+      />
 
       {/* Content */}
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -216,8 +208,8 @@ export default function TermsPage() {
               If you have questions about these Terms, please contact us:
             </p>
             <p className="text-gray-700">
-              <strong>Email:</strong> <a href="mailto:paintinga2@ges-development.com" className="text-blue-600 hover:underline">paintinga2@ges-development.com</a><br />
-              <strong>Website:</strong> <a href="https://paintinga2.com" className="text-blue-600 hover:underline">paintinga2.com</a>
+              <strong>Email:</strong> <a href="mailto:paintinga2@ges-development.com" className="text-umich-navy hover:underline">paintinga2@ges-development.com</a><br />
+              <strong>Website:</strong> <a href="https://paintinga2.com" className="text-umich-navy hover:underline">paintinga2.com</a>
             </p>
           </section>
         </div>
@@ -227,13 +219,13 @@ export default function TermsPage() {
       <footer className="bg-gray-50 py-8 px-4 sm:px-6 lg:px-8 mt-12">
         <div className="max-w-7xl mx-auto text-center">
           <div className="flex justify-center gap-8 mb-4">
-            <Link href="/privacy" className="text-blue-600 hover:underline">
+            <Link href="/privacy" className="text-umich-navy hover:underline">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="text-blue-600 hover:underline">
+            <Link href="/terms" className="text-umich-navy hover:underline">
               Terms of Service
             </Link>
-            <Link href="/" className="text-blue-600 hover:underline">
+            <Link href="/" className="text-umich-navy hover:underline">
               Home
             </Link>
           </div>

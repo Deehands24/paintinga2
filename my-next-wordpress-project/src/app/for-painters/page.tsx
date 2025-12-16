@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { pricingTiers } from '@/data/pricing';
 import { useState } from 'react';
 import Image from 'next/image';
+import PageHeader from '@/components/PageHeader';
 
 export default function ForPaintersPage() {
   const [loading, setLoading] = useState<string | null>(null);
@@ -55,25 +56,12 @@ export default function ForPaintersPage() {
   };
   return (
     <div className="min-h-screen gradient-subtle">
-      {/* Header */}
-      <header className="bg-umich-navy shadow-md border-b-4 border-umich-maize">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex justify-between items-center">
-            <h1 className="text-2xl font-bold text-umich-maize">PaintingA2</h1>
-            <nav className="flex gap-6">
-              <Link href="/" className="text-white hover:text-umich-maize font-medium transition-colors">
-                Home
-              </Link>
-              <Link
-                href="/listings"
-                className="text-white hover:text-umich-maize font-medium transition-colors"
-              >
-                Browse Painters
-              </Link>
-            </nav>
-          </div>
-        </div>
-      </header>
+      <PageHeader
+        navLinks={[
+          { href: '/', label: 'Home' },
+          { href: '/listings', label: 'Browse Painters' }
+        ]}
+      />
 
       {/* Hero Section */}
       <section className="gradient-navy text-white py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
@@ -328,7 +316,7 @@ export default function ForPaintersPage() {
                           <span
                             className={`text-xl font-normal ${
                               tier.tier === 'premier'
-                                ? 'text-blue-100'
+                                ? 'text-gray-200'
                                 : 'text-gray-600'
                             }`}
                           >
@@ -372,7 +360,7 @@ export default function ForPaintersPage() {
                           <svg
                             className={`w-6 h-6 flex-shrink-0 ${
                               tier.tier === 'premier'
-                                ? 'text-blue-300'
+                                ? 'text-gray-400'
                                 : 'text-gray-300'
                             }`}
                             fill="currentColor"
@@ -390,7 +378,7 @@ export default function ForPaintersPage() {
                             tier.tier === 'premier'
                               ? feature.included
                                 ? 'text-white'
-                                : 'text-blue-200'
+                                : 'text-gray-300'
                               : feature.included
                               ? 'text-gray-700'
                               : 'text-gray-400'

@@ -44,8 +44,8 @@ function SuccessContent() {
 
           <div className="space-y-6">
             <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
-                <span className="text-blue-600 font-bold">1</span>
+              <div className="flex-shrink-0 w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center">
+                <span className="text-umich-navy font-bold">1</span>
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900 mb-1">
@@ -58,8 +58,8 @@ function SuccessContent() {
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
-                <span className="text-blue-600 font-bold">2</span>
+              <div className="flex-shrink-0 w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center">
+                <span className="text-umich-navy font-bold">2</span>
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900 mb-1">
@@ -72,8 +72,8 @@ function SuccessContent() {
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
-                <span className="text-blue-600 font-bold">3</span>
+              <div className="flex-shrink-0 w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center">
+                <span className="text-umich-navy font-bold">3</span>
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900 mb-1">
@@ -86,8 +86,8 @@ function SuccessContent() {
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
-                <span className="text-blue-600 font-bold">4</span>
+              <div className="flex-shrink-0 w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center">
+                <span className="text-umich-navy font-bold">4</span>
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900 mb-1">
@@ -102,7 +102,7 @@ function SuccessContent() {
         </div>
 
         {/* Contact Info */}
-        <div className="bg-blue-50 rounded-2xl p-6 mb-8">
+        <div className="bg-yellow-50 rounded-2xl p-6 mb-8">
           <h3 className="font-semibold text-gray-900 mb-2">
             Questions or need help?
           </h3>
@@ -111,7 +111,7 @@ function SuccessContent() {
           </p>
           <a
             href="mailto:paintinga2@ges-development.com"
-            className="text-blue-600 font-semibold hover:text-blue-700"
+            className="text-umich-navy font-semibold hover:text-umich-navy"
           >
             paintinga2@ges-development.com
           </a>
@@ -121,13 +121,13 @@ function SuccessContent() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             href="/"
-            className="inline-block bg-blue-600 text-white font-bold px-8 py-4 rounded-lg hover:bg-blue-700 transition-colors text-center"
+            className="inline-block bg-umich-navy text-white font-bold px-8 py-4 rounded-lg hover:bg-umich-navy transition-colors text-center"
           >
             Go to Homepage
           </Link>
           <Link
             href="/listings"
-            className="inline-block bg-white text-blue-600 border-2 border-blue-600 font-bold px-8 py-4 rounded-lg hover:bg-blue-50 transition-colors text-center"
+            className="inline-block bg-white text-umich-navy border-2 border-umich-navy font-bold px-8 py-4 rounded-lg hover:bg-yellow-50 transition-colors text-center"
           >
             Browse Listings
           </Link>
@@ -148,7 +148,7 @@ export default function CheckoutSuccessPage() {
     <Suspense fallback={
       <div className="min-h-screen bg-gradient-to-b from-green-50 to-white flex items-center justify-center">
         <div className="text-center">
-          <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+          <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-umich-navy"></div>
           <p className="mt-4 text-gray-600">Loading...</p>
         </div>
       </div>

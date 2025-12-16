@@ -1,17 +1,15 @@
 import Link from 'next/link';
-import Logo from '@/components/Logo';
+import PageHeader from '@/components/PageHeader';
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white flex flex-col">
-      {/* Header */}
-      <header className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <Link href="/">
-            <Logo height={50} width={150} />
-          </Link>
-        </div>
-      </header>
+    <div className="min-h-screen bg-gradient-to-b from-yellow-50 to-white flex flex-col">
+      <PageHeader
+        navLinks={[
+          { href: '/', label: 'Home' },
+          { href: '/listings', label: 'Browse Painters' }
+        ]}
+      />
 
       {/* 404 Content */}
       <main className="flex-1 flex items-center justify-center px-4 sm:px-6 lg:px-8">
@@ -19,7 +17,7 @@ export default function NotFound() {
           {/* 404 Icon */}
           <div className="mb-8">
             <svg
-              className="mx-auto h-32 w-32 text-blue-600"
+              className="mx-auto h-32 w-32 text-umich-navy"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -46,13 +44,13 @@ export default function NotFound() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Link
               href="/"
-              className="inline-block bg-blue-600 text-white font-semibold px-8 py-4 rounded-lg hover:bg-blue-700 transition-colors"
+              className="inline-block bg-umich-navy text-white font-semibold px-8 py-4 rounded-lg hover:bg-umich-navy transition-colors"
             >
               Go to Homepage
             </Link>
             <Link
               href="/listings"
-              className="inline-block bg-white text-blue-600 border-2 border-blue-600 font-semibold px-8 py-4 rounded-lg hover:bg-blue-50 transition-colors"
+              className="inline-block bg-white text-umich-navy border-2 border-umich-navy font-semibold px-8 py-4 rounded-lg hover:bg-yellow-50 transition-colors"
             >
               Browse Painters
             </Link>
@@ -66,25 +64,25 @@ export default function NotFound() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
               <Link
                 href="/listings"
-                className="text-blue-600 hover:text-blue-700 hover:underline"
+                className="text-umich-navy hover:text-umich-navy hover:underline"
               >
                 → Browse All Painters
               </Link>
               <Link
                 href="/categories"
-                className="text-blue-600 hover:text-blue-700 hover:underline"
+                className="text-umich-navy hover:text-umich-navy hover:underline"
               >
                 → Service Categories
               </Link>
               <Link
                 href="/blog"
-                className="text-blue-600 hover:text-blue-700 hover:underline"
+                className="text-umich-navy hover:text-umich-navy hover:underline"
               >
                 → Blog & Articles
               </Link>
               <Link
                 href="/for-painters"
-                className="text-blue-600 hover:text-blue-700 hover:underline"
+                className="text-umich-navy hover:text-umich-navy hover:underline"
               >
                 → For Painters
               </Link>
@@ -100,7 +98,7 @@ export default function NotFound() {
             Need help? Email us at{' '}
             <a
               href="mailto:paintinga2@ges-development.com"
-              className="text-blue-600 hover:underline"
+              className="text-umich-navy hover:underline"
             >
               paintinga2@ges-development.com
             </a>

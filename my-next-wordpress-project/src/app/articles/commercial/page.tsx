@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import Logo from '@/components/Logo';
+import PageHeader from '@/components/PageHeader';
 
 export const metadata: Metadata = {
   title: 'Commercial Painting Services: What to Expect | PaintingA2',
@@ -11,24 +11,19 @@ export const metadata: Metadata = {
 export default function CommercialArticle() {
   return (
     <div className="min-h-screen bg-white">
-      <header className="bg-white shadow-sm sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex justify-between items-center">
-            <Logo height={50} width={150} />
-            <nav className="flex gap-6">
-              <Link href="/" className="text-gray-700 hover:text-blue-600">Home</Link>
-              <Link href="/articles" className="text-gray-700 hover:text-blue-600">Articles</Link>
-            </nav>
-          </div>
-        </div>
-      </header>
+      <PageHeader
+        navLinks={[
+          { href: '/', label: 'Home' },
+          { href: '/articles', label: 'Articles' }
+        ]}
+      />
 
       <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <nav className="mb-8 text-sm">
           <ol className="flex items-center space-x-2 text-gray-600">
-            <li><Link href="/" className="hover:text-blue-600">Home</Link></li>
+            <li><Link href="/" className="hover:text-umich-navy">Home</Link></li>
             <li>/</li>
-            <li><Link href="/articles" className="hover:text-blue-600">Articles</Link></li>
+            <li><Link href="/articles" className="hover:text-umich-navy">Articles</Link></li>
             <li>/</li>
             <li className="text-gray-900 font-medium">Commercial Painting</li>
           </ol>
@@ -55,8 +50,8 @@ export default function CommercialArticle() {
           </p>
 
           <div className="grid md:grid-cols-3 gap-6 my-8">
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-6 rounded-lg">
-              <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
+            <div className="bg-gradient-to-br from-yellow-50 to-yellow-50 p-6 rounded-lg">
+              <div className="w-12 h-12 bg-umich-navy rounded-lg flex items-center justify-center mb-4">
                 <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
@@ -65,8 +60,8 @@ export default function CommercialArticle() {
               <p className="text-gray-700 text-sm">Scheduling painting during evenings, weekends, or holidays to avoid impacting customers and employees.</p>
             </div>
 
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-6 rounded-lg">
-              <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
+            <div className="bg-gradient-to-br from-yellow-50 to-yellow-50 p-6 rounded-lg">
+              <div className="w-12 h-12 bg-umich-navy rounded-lg flex items-center justify-center mb-4">
                 <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                 </svg>
@@ -75,8 +70,8 @@ export default function CommercialArticle() {
               <p className="text-gray-700 text-sm">Breaking the project into smaller, manageable sections to keep essential areas of your business operational.</p>
             </div>
 
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-6 rounded-lg">
-              <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
+            <div className="bg-gradient-to-br from-yellow-50 to-yellow-50 p-6 rounded-lg">
+              <div className="w-12 h-12 bg-umich-navy rounded-lg flex items-center justify-center mb-4">
                 <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
                 </svg>
@@ -95,7 +90,7 @@ export default function CommercialArticle() {
 
           <ul className="space-y-3 mb-8">
             <li className="flex items-start gap-3">
-              <svg className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+              <svg className="w-6 h-6 text-umich-navy flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
               </svg>
               <div>
@@ -104,7 +99,7 @@ export default function CommercialArticle() {
               </div>
             </li>
             <li className="flex items-start gap-3">
-              <svg className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+              <svg className="w-6 h-6 text-umich-navy flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
               </svg>
               <div>
@@ -113,7 +108,7 @@ export default function CommercialArticle() {
               </div>
             </li>
             <li className="flex items-start gap-3">
-              <svg className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+              <svg className="w-6 h-6 text-umich-navy flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
               </svg>
               <div>
@@ -130,25 +125,25 @@ export default function CommercialArticle() {
             Commercial spaces require paints and coatings that are far more resilient than standard residential paints. An experienced contractor will recommend products based on the specific needs of the environment:
           </p>
 
-          <div className="bg-gray-50 border-l-4 border-blue-600 p-6 my-8">
+          <div className="bg-gray-50 border-l-4 border-umich-navy p-6 my-8">
             <h3 className="text-xl font-bold text-gray-900 mb-4">Common Commercial Coating Types:</h3>
             <ul className="space-y-3">
               <li className="flex items-start gap-2">
-                <span className="text-blue-600 font-bold">•</span>
+                <span className="text-umich-navy font-bold">•</span>
                 <div>
                   <strong className="text-gray-900">High-Durability Paints:</strong>
                   <span className="text-gray-700"> For hallways, lobbies, and other high-traffic areas, scuff-resistant or epoxy coatings are often used for their ability to withstand wear and tear and allow for easy cleaning.</span>
                 </div>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-blue-600 font-bold">•</span>
+                <span className="text-umich-navy font-bold">•</span>
                 <div>
                   <strong className="text-gray-900">Low-VOC and Zero-VOC Paints:</strong>
                   <span className="text-gray-700"> To maintain good indoor air quality for employees and customers, especially in office or retail settings, low-odor, low-VOC (Volatile Organic Compound) paints are essential.</span>
                 </div>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-blue-600 font-bold">•</span>
+                <span className="text-umich-navy font-bold">•</span>
                 <div>
                   <strong className="text-gray-900">Specialty Coatings:</strong>
                   <span className="text-gray-700"> Depending on the business, specialty coatings may be required, such as antimicrobial paints for healthcare facilities or dry-fall paints for industrial ceilings to minimize overspray.</span>
@@ -165,11 +160,11 @@ export default function CommercialArticle() {
           </p>
 
           <div className="grid md:grid-cols-2 gap-6 my-8">
-            <div className="bg-white border-2 border-blue-100 p-6 rounded-lg">
+            <div className="bg-white border-2 border-gray-200 p-6 rounded-lg">
               <h3 className="text-lg font-bold text-gray-900 mb-3">Reflecting Your Brand</h3>
               <p className="text-gray-700">Colors should align with your company&apos;s logo, marketing materials, and overall ethos. Blues and greens often convey trust and calm, while reds and yellows can evoke energy and excitement.</p>
             </div>
-            <div className="bg-white border-2 border-blue-100 p-6 rounded-lg">
+            <div className="bg-white border-2 border-gray-200 p-6 rounded-lg">
               <h3 className="text-lg font-bold text-gray-900 mb-3">Creating an Atmosphere</h3>
               <p className="text-gray-700">A spa might use calming, neutral tones, while a gym might opt for high-energy, vibrant colors. The color strategy should support the business&apos;s objectives, whether that&apos;s encouraging sales or promoting relaxation.</p>
             </div>
@@ -182,7 +177,7 @@ export default function CommercialArticle() {
             A professional commercial painter will prioritize safety for everyone involved. This includes using proper signage for wet paint, ensuring adequate ventilation, and adhering to all OSHA safety standards, especially when using ladders, scaffolding, or lifts. They will also be fully licensed and insured to protect your business from any liability.
           </p>
 
-          <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl p-8 my-12">
+          <div className="bg-gradient-to-r from-umich-navy to-umich-navy text-white rounded-xl p-8 my-12">
             <h3 className="text-2xl font-bold mb-4">The Partnership Approach</h3>
             <p className="text-lg leading-relaxed">
               A commercial painting project is a collaborative effort between the business owner and the contractor. By choosing an experienced professional who understands these unique requirements, you can ensure a result that not only looks great but also serves your business well for years to come.
@@ -196,7 +191,7 @@ export default function CommercialArticle() {
           </p>
           <Link
             href="/listings"
-            className="inline-block bg-blue-600 text-white font-bold px-8 py-4 rounded-lg hover:bg-blue-700 transition-colors"
+            className="inline-block bg-umich-navy text-white font-bold px-8 py-4 rounded-lg hover:bg-umich-navy transition-colors"
           >
             Browse Commercial Painters
           </Link>

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import Logo from '@/components/Logo';
+import PageHeader from '@/components/PageHeader';
 
 export const metadata: Metadata = {
   title: 'Painting Resources & Articles | PaintingA2',
@@ -49,21 +49,12 @@ const articles = [
 export default function ArticlesPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-      <header className="bg-white shadow-sm sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex justify-between items-center">
-            <Logo height={50} width={150} />
-            <nav className="flex gap-6">
-              <Link href="/" className="text-gray-700 hover:text-blue-600 font-medium">
-                Home
-              </Link>
-              <Link href="/listings" className="text-gray-700 hover:text-blue-600 font-medium">
-                Browse Painters
-              </Link>
-            </nav>
-          </div>
-        </div>
-      </header>
+      <PageHeader
+        navLinks={[
+          { href: '/', label: 'Home' },
+          { href: '/listings', label: 'Browse Painters' }
+        ]}
+      />
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center mb-16">
@@ -82,20 +73,20 @@ export default function ArticlesPage() {
               href={`/articles/${article.slug}`}
               className="group bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden transform hover:-translate-y-1"
             >
-              <div className="bg-gradient-to-br from-blue-500 to-indigo-600 h-48 flex items-center justify-center">
+              <div className="bg-gradient-to-br from-umich-navy to-umich-maize h-48 flex items-center justify-center">
                 <span className="text-8xl">{article.image}</span>
               </div>
               <div className="p-6">
-                <div className="text-sm font-semibold text-blue-600 mb-2">
+                <div className="text-sm font-semibold text-umich-navy mb-2">
                   {article.category}
                 </div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+                <h2 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-umich-navy transition-colors">
                   {article.title}
                 </h2>
                 <p className="text-gray-600 mb-4">
                   {article.description}
                 </p>
-                <span className="inline-flex items-center text-blue-600 font-semibold">
+                <span className="inline-flex items-center text-umich-navy font-semibold">
                   Read More
                   <svg className="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -106,14 +97,14 @@ export default function ArticlesPage() {
           ))}
         </div>
 
-        <div className="mt-16 bg-blue-600 rounded-2xl p-12 text-center text-white">
+        <div className="mt-16 bg-umich-navy rounded-2xl p-12 text-center text-white">
           <h2 className="text-3xl font-bold mb-4">Ready to Start Your Project?</h2>
           <p className="text-xl mb-8">
             Find trusted, professional painters in Ann Arbor
           </p>
           <Link
             href="/listings"
-            className="inline-block bg-white text-blue-600 font-bold px-8 py-4 rounded-lg hover:bg-blue-50 transition-colors"
+            className="inline-block bg-white text-umich-navy font-bold px-8 py-4 rounded-lg hover:bg-yellow-50 transition-colors"
           >
             Browse Painters
           </Link>

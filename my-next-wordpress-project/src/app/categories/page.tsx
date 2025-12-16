@@ -1,49 +1,19 @@
 import Link from 'next/link';
 import { categories } from '@/data/categories';
+import PageHeader from '@/components/PageHeader';
 import Logo from '@/components/Logo';
 
 export default function CategoriesPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
-      {/* Header */}
-      <header className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex justify-between items-center">
-            <div>
-              <Logo height={60} width={180} />
-              <p className="text-sm text-gray-900 mt-1">
-                Ann Arbor&apos;s Premier Painting Directory
-              </p>
-            </div>
-            <nav className="hidden md:flex gap-6">
-              <Link
-                href="/categories"
-                className="text-blue-600 hover:text-blue-700 font-semibold"
-              >
-                Categories
-              </Link>
-              <Link
-                href="/blog"
-                className="text-gray-900 hover:text-blue-600 font-medium"
-              >
-                Blog
-              </Link>
-              <Link
-                href="/articles"
-                className="text-gray-900 hover:text-blue-600 font-medium"
-              >
-                Resources
-              </Link>
-              <Link
-                href="/for-painters"
-                className="text-blue-600 hover:text-blue-700 font-semibold"
-              >
-                For Painters
-              </Link>
-            </nav>
-          </div>
-        </div>
-      </header>
+    <div className="min-h-screen bg-gradient-to-b from-yellow-50 to-white">
+      <PageHeader
+        navLinks={[
+          { href: '/categories', label: 'Categories', active: true },
+          { href: '/blog', label: 'Blog' },
+          { href: '/articles', label: 'Resources' },
+          { href: '/for-painters', label: 'For Painters' }
+        ]}
+      />
 
       {/* Hero Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
@@ -66,7 +36,7 @@ export default function CategoriesPage() {
               <Link
                 key={category.id}
                 href={`/category/${category.slug}`}
-                className="bg-white rounded-lg shadow-md hover:shadow-2xl transition-all duration-300 p-8 border border-gray-200 hover:border-blue-500 transform hover:-translate-y-2 group"
+                className="bg-white rounded-lg shadow-md hover:shadow-2xl transition-all duration-300 p-8 border border-gray-200 hover:border-umich-navy transform hover:-translate-y-2 group"
               >
                 <h3 className="text-2xl font-bold text-gray-900 mb-3">
                   {category.name}
@@ -74,7 +44,7 @@ export default function CategoriesPage() {
                 <p className="text-gray-900 text-base leading-relaxed">
                   {category.description}
                 </p>
-                <span className="inline-flex items-center mt-6 text-blue-600 font-semibold group-hover:text-blue-700">
+                <span className="inline-flex items-center mt-6 text-umich-navy font-semibold group-hover:text-umich-navy">
                   View Painters
                   <svg
                     className="w-5 h-5 ml-1 transform group-hover:translate-x-2 transition-transform duration-300"
@@ -102,13 +72,13 @@ export default function CategoriesPage() {
           <h2 className="text-4xl font-bold text-white mb-4">
             Are You a Painter?
           </h2>
-          <p className="text-xl text-blue-100 mb-8">
+          <p className="text-xl text-gray-200 mb-8">
             Join Ann Arbor&apos;s premier painting directory and grow your business
             with quality leads from local customers.
           </p>
           <Link
             href="/for-painters"
-            className="inline-block bg-white text-blue-600 font-bold px-8 py-4 rounded-lg hover:bg-blue-50 transition-colors text-lg"
+            className="inline-block bg-white text-umich-navy font-bold px-8 py-4 rounded-lg hover:bg-yellow-50 transition-colors text-lg"
           >
             Learn More About Listing Your Business
           </Link>

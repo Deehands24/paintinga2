@@ -33,7 +33,7 @@ export default function SearchBar() {
               placeholder="Search for painters or services..."
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-umich-maize focus:border-transparent"
             />
           </div>
           <div className="w-full md:w-64">
@@ -44,7 +44,7 @@ export default function SearchBar() {
               id="category"
               value={category}
               onChange={(e) => setCategory(e.target.value)}
-              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white"
+              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-umich-maize focus:border-transparent bg-white"
             >
               <option value="">All Services</option>
               <option value="residential">Residential Painting</option>
@@ -57,7 +57,7 @@ export default function SearchBar() {
           </div>
           <button
             type="submit"
-            className="px-8 py-3 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition-colors"
+            className="px-8 py-3 bg-umich-navy text-white font-semibold rounded-md hover:bg-umich-navy transition-colors"
           >
             Search
           </button>

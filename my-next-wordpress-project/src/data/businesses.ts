@@ -45,8 +45,9 @@ export const businesses: Business[] = [
     description:
       'For projects that extend beyond a simple coat of paint, Wolverine Custom Painting is a frequently recommended choice. Their portfolio includes not just painting but also complete renovations, cabinet installation, and even electrical work, making them a versatile contractor for more complex home improvement projects. With over two decades of experience, they are known for their high-quality craftsmanship and integrity.',
     services: ['residential', 'commercial', 'interior', 'exterior', 'cabinets'],
-    tier: 'pro',
+    tier: 'premier',
     verified: true,
+    featured: true,
     yearsInBusiness: 20,
   },
   {
@@ -90,8 +91,9 @@ export const businesses: Business[] = [
     description:
       "Al's Painting, Inc. is a professional painting contractor with years of experience serving the Ann Arbor community. Known for reliability and quality workmanship, they specialize in both interior and exterior painting projects for homes and businesses.",
     services: ['residential', 'commercial', 'interior', 'exterior'],
-    tier: 'basic',
+    tier: 'premier',
     verified: true,
+    featured: true,
   },
   {
     id: 'pinnacle-house-painters',

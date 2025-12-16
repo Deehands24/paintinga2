@@ -6,7 +6,7 @@ import Link from 'next/link';
 import BusinessCard from '@/components/BusinessCard';
 import { businesses } from '@/data/businesses';
 import type { Business } from '@/types/directory';
-import Logo from '@/components/Logo';
+import PageHeader from '@/components/PageHeader';
 
 function SearchResults() {
   const searchParams = useSearchParams();
@@ -43,21 +43,12 @@ function SearchResults() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-      <header className="bg-white shadow-sm sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex justify-between items-center">
-            <Logo height={50} width={150} />
-            <nav className="flex gap-6">
-              <Link href="/" className="text-gray-700 hover:text-blue-600">
-                Home
-              </Link>
-              <Link href="/listings" className="text-gray-700 hover:text-blue-600">
-                All Listings
-              </Link>
-            </nav>
-          </div>
-        </div>
-      </header>
+      <PageHeader
+        navLinks={[
+          { href: '/', label: 'Home' },
+          { href: '/listings', label: 'All Listings' }
+        ]}
+      />
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="mb-8">
@@ -67,19 +58,19 @@ function SearchResults() {
           {(query || category) && (
             <div className="flex flex-wrap items-center gap-4">
               {query && (
-                <div className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full">
+                <div className="bg-yellow-100 text-umich-navy px-4 py-2 rounded-full">
                   <span className="font-medium">Query:</span> {query}
                 </div>
               )}
               {category && (
-                <div className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full capitalize">
+                <div className="bg-yellow-100 text-umich-navy px-4 py-2 rounded-full capitalize">
                   <span className="font-medium">Category:</span>{' '}
                   {category.replace('-', ' ')}
                 </div>
               )}
               <Link
                 href="/search"
-                className="text-blue-600 hover:text-blue-700 font-medium"
+                className="text-umich-navy hover:text-umich-navy font-medium"
               >
                 Clear filters
               </Link>
@@ -124,7 +115,7 @@ function SearchResults() {
             <div className="flex justify-center gap-4">
               <Link
                 href="/listings"
-                className="bg-blue-600 text-white font-bold px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+                className="bg-umich-navy text-white font-bold px-6 py-3 rounded-lg hover:bg-umich-navy transition-colors"
               >
                 Browse All Painters
               </Link>

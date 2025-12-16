@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import Logo from '@/components/Logo';
+import PageHeader from '@/components/PageHeader';
 
 export const metadata: Metadata = {
   title: 'Transform Your Space: Expert Painting Services ROI | PaintingA2',
@@ -11,24 +11,19 @@ export const metadata: Metadata = {
 export default function TransformArticle() {
   return (
     <div className="min-h-screen bg-white">
-      <header className="bg-white shadow-sm sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex justify-between items-center">
-            <Logo height={50} width={150} />
-            <nav className="flex gap-6">
-              <Link href="/" className="text-gray-700 hover:text-blue-600">Home</Link>
-              <Link href="/articles" className="text-gray-700 hover:text-blue-600">Articles</Link>
-            </nav>
-          </div>
-        </div>
-      </header>
+      <PageHeader
+        navLinks={[
+          { href: '/', label: 'Home' },
+          { href: '/articles', label: 'Articles' }
+        ]}
+      />
 
       <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <nav className="mb-8 text-sm">
           <ol className="flex items-center space-x-2 text-gray-600">
-            <li><Link href="/" className="hover:text-blue-600">Home</Link></li>
+            <li><Link href="/" className="hover:text-umich-navy">Home</Link></li>
             <li>/</li>
-            <li><Link href="/articles" className="hover:text-blue-600">Articles</Link></li>
+            <li><Link href="/articles" className="hover:text-umich-navy">Articles</Link></li>
             <li>/</li>
             <li className="text-gray-900 font-medium">Transform Your Space</li>
           </ol>
@@ -66,7 +61,7 @@ export default function TransformArticle() {
             financial decision. The data is clear:
           </p>
 
-          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-8 my-8">
+          <div className="bg-gradient-to-r from-yellow-50 to-yellow-50 rounded-lg p-8 my-8">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
               Interior Painting ROI: 100-107%
             </h3>
@@ -111,7 +106,7 @@ export default function TransformArticle() {
 
           <ul className="space-y-4 my-6">
             <li className="flex items-start gap-3">
-              <svg className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+              <svg className="w-6 h-6 text-umich-navy flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
               </svg>
               <div>
@@ -120,7 +115,7 @@ export default function TransformArticle() {
               </div>
             </li>
             <li className="flex items-start gap-3">
-              <svg className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+              <svg className="w-6 h-6 text-umich-navy flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
               </svg>
               <div>
@@ -129,7 +124,7 @@ export default function TransformArticle() {
               </div>
             </li>
             <li className="flex items-start gap-3">
-              <svg className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+              <svg className="w-6 h-6 text-umich-navy flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
               </svg>
               <div>
@@ -160,7 +155,7 @@ export default function TransformArticle() {
             Arbor can help bring your vision to life.
           </p>
 
-          <div className="bg-blue-50 border-l-4 border-blue-600 p-6 my-12">
+          <div className="bg-yellow-50 border-l-4 border-umich-navy p-6 my-12">
             <p className="text-lg text-gray-900">
               Find trusted, local painting experts and start your transformation
               today by exploring the PaintingA2.com directory.
@@ -171,7 +166,7 @@ export default function TransformArticle() {
         <div className="mt-12 text-center">
           <Link
             href="/listings"
-            className="inline-block bg-blue-600 text-white font-bold px-8 py-4 rounded-lg hover:bg-blue-700 transition-colors"
+            className="inline-block bg-umich-navy text-white font-bold px-8 py-4 rounded-lg hover:bg-umich-navy transition-colors"
           >
             Find Your Painter Today
           </Link>

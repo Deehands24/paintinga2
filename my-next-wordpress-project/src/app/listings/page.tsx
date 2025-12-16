@@ -2,7 +2,7 @@ import Link from 'next/link';
 import BusinessCard from '@/components/BusinessCard';
 import { businesses } from '@/data/businesses';
 import type { Metadata } from 'next';
-import Logo from '@/components/Logo';
+import PageHeader from '@/components/PageHeader';
 
 export const metadata: Metadata = {
   title: 'All Painting Contractors in Ann Arbor | PaintingA2',
@@ -16,21 +16,12 @@ export default function ListingsPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-      <header className="bg-white shadow-sm sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex justify-between items-center">
-            <Logo height={50} width={150} />
-            <nav className="flex gap-6">
-              <Link href="/" className="text-gray-700 hover:text-blue-600 font-medium">
-                Home
-              </Link>
-              <Link href="/articles" className="text-gray-700 hover:text-blue-600 font-medium">
-                Articles
-              </Link>
-            </nav>
-          </div>
-        </div>
-      </header>
+      <PageHeader
+        navLinks={[
+          { href: '/', label: 'Home' },
+          { href: '/articles', label: 'Articles' }
+        ]}
+      />
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="mb-12">
@@ -71,14 +62,14 @@ export default function ListingsPage() {
           </div>
         </section>
 
-        <div className="mt-16 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-12 text-center text-white">
+        <div className="mt-16 bg-gradient-to-r from-umich-navy to-umich-navy rounded-2xl p-12 text-center text-white">
           <h2 className="text-3xl font-bold mb-4">Are You a Painter?</h2>
           <p className="text-xl mb-8">
             Get more leads and grow your business with PaintingA2
           </p>
           <Link
             href="/for-painters"
-            className="inline-block bg-white text-blue-600 font-bold px-8 py-4 rounded-lg hover:bg-blue-50 transition-colors"
+            className="inline-block bg-white text-umich-navy font-bold px-8 py-4 rounded-lg hover:bg-yellow-50 transition-colors"
           >
             List Your Business
           </Link>
