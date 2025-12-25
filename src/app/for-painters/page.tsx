@@ -93,7 +93,7 @@ export default function ForPaintersPage() {
       {/* Benefits Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 gradient-section">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">
+          <h2 className="text-4xl font-bold text-center text-umich-navy mb-16">
             Why List Your Business on PaintingA2?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -113,7 +113,7 @@ export default function ForPaintersPage() {
                   />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              <h3 className="text-2xl font-bold text-umich-navy mb-4">
                 Enhanced Online Presence
               </h3>
               <p className="text-gray-700">
@@ -145,7 +145,7 @@ export default function ForPaintersPage() {
                   />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              <h3 className="text-2xl font-bold text-umich-navy mb-4">
                 Improved Local Visibility
               </h3>
               <p className="text-gray-700">
@@ -171,7 +171,7 @@ export default function ForPaintersPage() {
                   />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              <h3 className="text-2xl font-bold text-umich-navy mb-4">
                 Build Trust & Credibility
               </h3>
               <p className="text-gray-700">

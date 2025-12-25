@@ -48,7 +48,7 @@ export default async function BlogPostPage({ params }: PageProps) {
     .slice(0, 3);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+    <div className="min-h-screen gradient-subtle">
       <PageHeader
         navLinks={[
           { href: '/', label: 'Home' },
@@ -113,16 +113,16 @@ export default async function BlogPostPage({ params }: PageProps) {
         </article>
 
         {/* CTA Section */}
-        <div className="bg-gradient-to-r from-umich-navy to-umich-navy rounded-lg shadow-xl p-8 text-center mb-12">
-          <h2 className="text-3xl font-bold text-white mb-4">
+        <div className="bg-umich-navy rounded-lg shadow-xl p-8 text-center mb-12 border-4 border-umich-maize">
+          <h2 className="text-3xl font-bold text-umich-maize mb-4">
             Ready to Start Your Project?
           </h2>
-          <p className="text-xl text-gray-200 mb-6">
+          <p className="text-xl text-white mb-6">
             Browse our directory of trusted Ann Arbor painting professionals
           </p>
           <Link
             href="/listings"
-            className="inline-block bg-white text-umich-navy font-bold px-8 py-4 rounded-lg hover:bg-yellow-50 transition-colors text-lg shadow-lg"
+            className="inline-block bg-umich-maize text-umich-navy font-bold px-8 py-4 rounded-lg hover:bg-yellow-400 transition-colors text-lg shadow-lg"
           >
             Find a Painter
           </Link>
@@ -131,7 +131,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         {/* Related Articles */}
         {filteredRelated.length > 0 && (
           <section>
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl font-bold text-umich-navy mb-6">
               Related Articles
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
