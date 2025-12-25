@@ -10,7 +10,11 @@ export const metadata: Metadata = {
 };
 
 export default async function BlogIndexPage() {
-  const articles = await getArticles();
+  const allArticles = await getArticles();
+  // Filter for blog posts only (exclude resource articles)
+  const articles = allArticles.filter(article =>
+    !['Benefits', 'Hiring Tips', 'Commercial'].includes(article.category)
+  );
   const categories = Array.from(new Set(articles.map(a => a.category)));
 
   return (

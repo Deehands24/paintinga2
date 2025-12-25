@@ -10,7 +10,11 @@ export const metadata: Metadata = {
 };
 
 export default async function ArticlesPage() {
-  const articles = await getArticles();
+  // Filter for resource/educational articles only
+  const allArticles = await getArticles();
+  const articles = allArticles.filter(article =>
+    ['Benefits', 'Hiring Tips', 'Commercial'].includes(article.category)
+  );
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       <PageHeader
