@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import PageHeader from '@/components/PageHeader';
+import { getArticles } from '@/lib/sanity-data';
 
 export const metadata: Metadata = {
   title: 'Painting Resources & Articles | PaintingA2',
@@ -8,45 +9,8 @@ export const metadata: Metadata = {
     'Expert guides, tips, and advice for homeowners and business owners. Learn about hiring painters, ROI, and professional painting services in Ann Arbor.',
 };
 
-const articles = [
-  {
-    slug: 'spotlight',
-    title: 'Spotlight on Ann Arbor\'s Best Painting Professionals',
-    description: 'Discover top-rated painting contractors recognized for quality, customer service, and exceptional craftsmanship.',
-    category: 'Featured',
-    image: '🎨',
-  },
-  {
-    slug: 'benefits',
-    title: 'Why Use a Painting Directory?',
-    description: 'Learn the smarter way to find Ann Arbor\'s best painters. Save time, compare services, and connect with trusted professionals.',
-    category: 'Guide',
-    image: '📋',
-  },
-  {
-    slug: 'transform',
-    title: 'Transform Your Space with Expert Painting Services',
-    description: 'Discover how professional painting delivers 100-150% ROI and can boost your home\'s value significantly.',
-    category: 'Home Improvement',
-    image: '🏠',
-  },
-  {
-    slug: 'hiring-tips',
-    title: '5 Tips for Hiring Trusted Painters in Ann Arbor',
-    description: 'Your essential checklist for vetting painters, verifying insurance, getting detailed estimates, and ensuring quality work.',
-    category: 'Guide',
-    image: '✓',
-  },
-  {
-    slug: 'commercial',
-    title: 'Commercial Painting Services: What to Expect',
-    description: 'A business owner\'s guide to planning, timing, specialized coatings, and minimizing disruption for commercial projects.',
-    category: 'Commercial',
-    image: '🏢',
-  },
-];
-
-export default function ArticlesPage() {
+export default async function ArticlesPage() {
+  const articles = await getArticles();
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       <PageHeader
@@ -69,13 +33,23 @@ export default function ArticlesPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {articles.map((article) => (
             <Link
-              key={article.slug}
-              href={`/articles/${article.slug}`}
+              key={article.id}
+              href={`/blog/${article.slug}`}
               className="group bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden transform hover:-translate-y-1"
             >
-              <div className="bg-gradient-to-br from-umich-navy to-umich-maize h-48 flex items-center justify-center">
-                <span className="text-8xl">{article.image}</span>
-              </div>
+              {article.mainImage ? (
+                <div className="h-48 overflow-hidden">
+                  <img
+                    src={article.mainImage.url}
+                    alt={article.mainImage.alt}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+              ) : (
+                <div className="bg-gradient-to-br from-umich-navy to-umich-maize h-48 flex items-center justify-center">
+                  <span className="text-8xl">📄</span>
+                </div>
+              )}
               <div className="p-6">
                 <div className="text-sm font-semibold text-umich-navy mb-2">
                   {article.category}
@@ -84,7 +58,7 @@ export default function ArticlesPage() {
                   {article.title}
                 </h2>
                 <p className="text-gray-600 mb-4">
-                  {article.description}
+                  {article.excerpt || article.strategicPurpose || ''}
                 </p>
                 <span className="inline-flex items-center text-umich-navy font-semibold">
                   Read More
