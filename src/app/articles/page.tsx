@@ -16,20 +16,21 @@ export default async function ArticlesPage() {
     ['Benefits', 'Hiring Tips', 'Commercial'].includes(article.category)
   );
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+    <div className="min-h-screen gradient-subtle">
       <PageHeader
         navLinks={[
           { href: '/', label: 'Home' },
-          { href: '/listings', label: 'Browse Painters' }
+          { href: '/listings', label: 'Browse Painters' },
+          { href: '/blog', label: 'Blog' }
         ]}
       />
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center mb-16">
-          <h1 className="text-5xl font-bold text-gray-900 mb-4">
+          <h1 className="text-5xl font-bold text-umich-navy mb-4">
             Resources & Articles
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
             Expert guides, tips, and insights to help you make informed decisions about your painting projects.
           </p>
         </div>
@@ -75,14 +76,14 @@ export default async function ArticlesPage() {
           ))}
         </div>
 
-        <div className="mt-16 bg-umich-navy rounded-2xl p-12 text-center text-white">
-          <h2 className="text-3xl font-bold mb-4">Ready to Start Your Project?</h2>
+        <div className="mt-16 bg-umich-navy rounded-2xl p-12 text-center text-white shadow-lg">
+          <h2 className="text-3xl font-bold text-umich-maize mb-4">Ready to Start Your Project?</h2>
           <p className="text-xl mb-8">
             Find trusted, professional painters in Ann Arbor
           </p>
           <Link
             href="/listings"
-            className="inline-block bg-white text-umich-navy font-bold px-8 py-4 rounded-lg hover:bg-yellow-50 transition-colors"
+            className="inline-block bg-umich-maize text-umich-navy font-bold px-8 py-4 rounded-lg hover:bg-yellow-400 transition-colors shadow-lg"
           >
             Browse Painters
           </Link>

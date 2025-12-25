@@ -109,23 +109,23 @@ export default async function BlogIndexPage() {
         </div>
 
         {/* CTA Section */}
-        <div className="bg-gradient-to-r from-umich-navy to-umich-navy rounded-lg shadow-xl p-8 md:p-12 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+        <div className="bg-umich-navy rounded-lg shadow-xl p-8 md:p-12 text-center border-4 border-umich-maize">
+          <h2 className="text-3xl md:text-4xl font-bold text-umich-maize mb-4">
             Ready to Transform Your Space?
           </h2>
-          <p className="text-xl text-gray-200 mb-6">
+          <p className="text-xl text-white mb-6">
             Connect with Ann Arbor&apos;s top-rated painting professionals
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/listings"
-              className="inline-block bg-white text-umich-navy font-bold px-8 py-4 rounded-lg hover:bg-yellow-50 transition-colors text-lg shadow-lg"
+              className="inline-block bg-umich-maize text-umich-navy font-bold px-8 py-4 rounded-lg hover:bg-yellow-400 transition-colors text-lg shadow-lg"
             >
               Browse Painters
             </Link>
             <Link
               href="/for-painters"
-              className="inline-block bg-umich-navy text-white font-bold px-8 py-4 rounded-lg hover:bg-opacity-90 transition-colors text-lg shadow-lg border-2 border-white"
+              className="inline-block bg-transparent text-white font-bold px-8 py-4 rounded-lg hover:bg-white hover:text-umich-navy transition-colors text-lg shadow-lg border-2 border-white"
             >
               List Your Business
             </Link>
@@ -134,52 +134,52 @@ export default async function BlogIndexPage() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8 mt-16">
+      <footer className="bg-umich-navy border-t-4 border-umich-maize text-white py-12 px-4 sm:px-6 lg:px-8 mt-16">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <Logo height={50} width={150} />
-            <p className="text-gray-400 mt-4">
+            <h3 className="text-2xl font-bold text-umich-maize mb-2">PaintingA2</h3>
+            <p className="text-gray-300 mt-4">
               Ann Arbor&apos;s trusted directory for finding professional painting contractors.
             </p>
           </div>
           <div>
-            <h4 className="font-bold mb-4">For Customers</h4>
-            <ul className="space-y-2 text-gray-400">
+            <h4 className="font-bold mb-4 text-umich-maize">For Customers</h4>
+            <ul className="space-y-2 text-gray-300">
               <li>
-                <Link href="/listings" className="hover:text-white">
+                <Link href="/listings" className="hover:text-umich-maize transition-colors">
                   Find a Painter
                 </Link>
               </li>
               <li>
-                <Link href="/categories" className="hover:text-white">
+                <Link href="/categories" className="hover:text-umich-maize transition-colors">
                   Browse Categories
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="hover:text-white">
+                <Link href="/blog" className="hover:text-umich-maize transition-colors">
                   Blog
                 </Link>
               </li>
             </ul>
           </div>
           <div>
-            <h4 className="font-bold mb-4">For Painters</h4>
-            <ul className="space-y-2 text-gray-400">
+            <h4 className="font-bold mb-4 text-umich-maize">For Painters</h4>
+            <ul className="space-y-2 text-gray-300">
               <li>
-                <Link href="/for-painters" className="hover:text-white">
+                <Link href="/for-painters" className="hover:text-umich-maize transition-colors">
                   List Your Business
                 </Link>
               </li>
               <li>
-                <Link href="/for-painters#pricing" className="hover:text-white">
+                <Link href="/for-painters#pricing" className="hover:text-umich-maize transition-colors">
                   Pricing Plans
                 </Link>
               </li>
             </ul>
           </div>
         </div>
-        <div className="max-w-7xl mx-auto mt-8 pt-8 border-t border-gray-800 text-center text-gray-400">
-          <p>&copy; 2024 PaintingA2.com. All rights reserved.</p>
+        <div className="max-w-7xl mx-auto mt-8 pt-8 border-t border-gray-700 text-center text-gray-400">
+          <p>&copy; 2025 PaintingA2.com. All rights reserved.</p>
         </div>
       </footer>
     </div>
