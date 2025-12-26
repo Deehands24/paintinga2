@@ -4,6 +4,7 @@ import "./globals.css";
 import { GoogleAnalytics } from "@/components/Analytics";
 import { OrganizationStructuredData } from "@/components/StructuredData";
 import { CookieConsent } from "@/components/CookieConsent";
+import { WebVitals } from "@/components/WebVitals";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -88,6 +89,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {GA_MEASUREMENT_ID && <GoogleAnalytics measurementId={GA_MEASUREMENT_ID} />}
+        <WebVitals />
         {children}
         <CookieConsent />
       </body>

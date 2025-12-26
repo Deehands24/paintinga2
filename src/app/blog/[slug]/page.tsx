@@ -4,7 +4,8 @@ import { getArticleBySlug, getArticlesByCategory, getArticles } from '@/lib/sani
 import type { Metadata } from 'next';
 import PageHeader from '@/components/PageHeader';
 import { PortableText } from 'next-sanity';
-import Image from 'next/image';
+import ArticleMedia from '@/components/ArticleMedia';
+import ArticleStructuredData from '@/components/ArticleStructuredData';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -64,6 +65,12 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   return (
     <div className="min-h-screen gradient-subtle">
+      {/* SEO: Structured Data for Rich Results */}
+      <ArticleStructuredData
+        article={article}
+        url={`https://paintinga2.com/blog/${article.slug}`}
+      />
+
       <PageHeader
         navLinks={[
           { href: '/', label: 'Home' },
@@ -107,34 +114,15 @@ export default async function BlogPostPage({ params }: PageProps) {
             </div>
           </div>
 
-          {/* Main Image or Video */}
-          {article.mainImage && (
-            <div className="mb-8 rounded-lg overflow-hidden">
-              {article.mainImage.mediaType === 'image' && article.mainImage.image ? (
-                <Image
-                  src={article.mainImage.image.url}
-                  alt={article.mainImage.image.alt}
-                  width={article.mainImage.image.dimensions?.width || 1200}
-                  height={article.mainImage.image.dimensions?.height || 630}
-                  className="w-full h-auto"
-                  priority
-                />
-              ) : article.mainImage.mediaType === 'video' && article.mainImage.video ? (
-                <video
-                  src={article.mainImage.video.url}
-                  poster={article.mainImage.video.posterImage?.url}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-auto"
-                  aria-label={article.mainImage.video.alt}
-                >
-                  Your browser does not support the video tag.
-                </video>
-              ) : null}
-            </div>
-          )}
+          {/* Main Image or Video - Optimized with lazy loading */}
+          <div className="mb-8 rounded-lg overflow-hidden">
+            <ArticleMedia
+              mainImage={article.mainImage}
+              title={article.title}
+              priority={true}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+            />
+          </div>
 
           {/* Article Content */}
           <div className="article-content prose prose-lg max-w-none">
