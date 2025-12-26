@@ -44,11 +44,26 @@ export default async function ArticlesPage() {
             >
               {article.mainImage ? (
                 <div className="h-48 overflow-hidden">
-                  <img
-                    src={article.mainImage.url}
-                    alt={article.mainImage.alt}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
+                  {article.mainImage.mediaType === 'image' && article.mainImage.image ? (
+                    <img
+                      src={article.mainImage.image.url}
+                      alt={article.mainImage.image.alt}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  ) : article.mainImage.mediaType === 'video' && article.mainImage.video ? (
+                    <video
+                      src={article.mainImage.video.url}
+                      poster={article.mainImage.video.posterImage?.url}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      aria-label={article.mainImage.video.alt}
+                    >
+                      Your browser does not support the video tag.
+                    </video>
+                  ) : null}
                 </div>
               ) : (
                 <div className="bg-gradient-to-br from-umich-navy to-umich-maize h-48 flex items-center justify-center">

@@ -22,10 +22,28 @@ export interface Article {
   strategicPurpose?: string
   excerpt?: string
   mainImage?: {
-    url: string
-    alt: string
-    lqip?: string
-    dimensions?: { width: number; height: number }
+    mediaType: 'image' | 'video'
+    image?: {
+      url: string
+      alt: string
+      lqip?: string
+      dimensions?: { width: number; height: number }
+      hotspot?: any
+      crop?: any
+    }
+    video?: {
+      url: string
+      alt: string
+      mimeType?: string
+      size?: number
+      posterImage?: {
+        url: string
+        lqip?: string
+        dimensions?: { width: number; height: number }
+        hotspot?: any
+        crop?: any
+      }
+    }
   }
   body?: any[] // Portable Text content
   seo?: {
@@ -104,6 +122,46 @@ export async function searchBusinesses(query: string): Promise<Business[]> {
 
 // Map Sanity article data to Article type
 function mapSanityArticle(article: any): Article {
+  // Handle mainImage based on mediaType
+  let mainImage: Article['mainImage'] = undefined
+
+  if (article.mainImage) {
+    const mediaType = article.mainImage.mediaType || 'image'
+
+    if (mediaType === 'image' && article.mainImage.image?.asset) {
+      mainImage = {
+        mediaType: 'image',
+        image: {
+          url: article.mainImage.image.asset.url,
+          alt: article.mainImage.image.alt || article.title,
+          lqip: article.mainImage.image.asset.metadata?.lqip,
+          dimensions: article.mainImage.image.asset.metadata?.dimensions,
+          hotspot: article.mainImage.image.hotspot,
+          crop: article.mainImage.image.crop,
+        },
+      }
+    } else if (mediaType === 'video' && article.mainImage.video?.asset) {
+      mainImage = {
+        mediaType: 'video',
+        video: {
+          url: article.mainImage.video.asset.url,
+          alt: article.mainImage.video.alt || article.title,
+          mimeType: article.mainImage.video.asset.mimeType,
+          size: article.mainImage.video.asset.size,
+          posterImage: article.mainImage.video.posterImage?.asset
+            ? {
+                url: article.mainImage.video.posterImage.asset.url,
+                lqip: article.mainImage.video.posterImage.asset.metadata?.lqip,
+                dimensions: article.mainImage.video.posterImage.asset.metadata?.dimensions,
+                hotspot: article.mainImage.video.posterImage.hotspot,
+                crop: article.mainImage.video.posterImage.crop,
+              }
+            : undefined,
+        },
+      }
+    }
+  }
+
   return {
     id: article._id,
     title: article.title,
@@ -112,14 +170,7 @@ function mapSanityArticle(article: any): Article {
     publishedDate: article.publishedDate,
     strategicPurpose: article.strategicPurpose,
     excerpt: article.excerpt,
-    mainImage: article.mainImage?.asset
-      ? {
-          url: article.mainImage.asset.url,
-          alt: article.mainImage.alt || article.title,
-          lqip: article.mainImage.asset.metadata?.lqip,
-          dimensions: article.mainImage.asset.metadata?.dimensions,
-        }
-      : undefined,
+    mainImage,
     body: article.body,
     seo: article.seo,
   }

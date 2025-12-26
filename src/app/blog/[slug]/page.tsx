@@ -27,10 +27,25 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
   }
 
+  // Get Open Graph image - use posterImage for videos, image for images
+  let ogImage: string | undefined
+  if (article.mainImage) {
+    if (article.mainImage.mediaType === 'video' && article.mainImage.video?.posterImage) {
+      ogImage = article.mainImage.video.posterImage.url
+    } else if (article.mainImage.mediaType === 'image' && article.mainImage.image) {
+      ogImage = article.mainImage.image.url
+    }
+  }
+
   return {
     title: article.seo?.metaTitle || `${article.title} | PaintingA2 Blog`,
     description: article.seo?.metaDescription || article.excerpt || article.strategicPurpose || '',
     keywords: article.seo?.keywords,
+    openGraph: ogImage
+      ? {
+          images: [ogImage],
+        }
+      : undefined,
   };
 }
 
@@ -92,17 +107,32 @@ export default async function BlogPostPage({ params }: PageProps) {
             </div>
           </div>
 
-          {/* Main Image */}
+          {/* Main Image or Video */}
           {article.mainImage && (
             <div className="mb-8 rounded-lg overflow-hidden">
-              <Image
-                src={article.mainImage.url}
-                alt={article.mainImage.alt}
-                width={article.mainImage.dimensions?.width || 1200}
-                height={article.mainImage.dimensions?.height || 630}
-                className="w-full h-auto"
-                priority
-              />
+              {article.mainImage.mediaType === 'image' && article.mainImage.image ? (
+                <Image
+                  src={article.mainImage.image.url}
+                  alt={article.mainImage.image.alt}
+                  width={article.mainImage.image.dimensions?.width || 1200}
+                  height={article.mainImage.image.dimensions?.height || 630}
+                  className="w-full h-auto"
+                  priority
+                />
+              ) : article.mainImage.mediaType === 'video' && article.mainImage.video ? (
+                <video
+                  src={article.mainImage.video.url}
+                  poster={article.mainImage.video.posterImage?.url}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-auto"
+                  aria-label={article.mainImage.video.alt}
+                >
+                  Your browser does not support the video tag.
+                </video>
+              ) : null}
             </div>
           )}
 

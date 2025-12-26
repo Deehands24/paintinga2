@@ -144,15 +144,41 @@ export const ARTICLES_QUERY = defineQuery(`
     strategicPurpose,
     excerpt,
     mainImage {
-      asset->{
-        _id,
-        url,
-        metadata {
-          lqip,
-          dimensions { width, height }
-        }
+      mediaType,
+      image {
+        asset->{
+          _id,
+          url,
+          metadata {
+            lqip,
+            dimensions { width, height }
+          }
+        },
+        alt,
+        hotspot,
+        crop
       },
-      alt
+      video {
+        asset->{
+          _id,
+          url,
+          size,
+          mimeType
+        },
+        alt,
+        posterImage {
+          asset->{
+            _id,
+            url,
+            metadata {
+              lqip,
+              dimensions { width, height }
+            }
+          },
+          hotspot,
+          crop
+        }
+      }
     },
     body,
     seo
@@ -170,15 +196,41 @@ export const ARTICLE_BY_SLUG_QUERY = defineQuery(`
     strategicPurpose,
     excerpt,
     mainImage {
-      asset->{
-        _id,
-        url,
-        metadata {
-          lqip,
-          dimensions { width, height }
-        }
+      mediaType,
+      image {
+        asset->{
+          _id,
+          url,
+          metadata {
+            lqip,
+            dimensions { width, height }
+          }
+        },
+        alt,
+        hotspot,
+        crop
       },
-      alt
+      video {
+        asset->{
+          _id,
+          url,
+          size,
+          mimeType
+        },
+        alt,
+        posterImage {
+          asset->{
+            _id,
+            url,
+            metadata {
+              lqip,
+              dimensions { width, height }
+            }
+          },
+          hotspot,
+          crop
+        }
+      }
     },
     body,
     seo
