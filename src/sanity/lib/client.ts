@@ -8,6 +8,6 @@ export const client = createClient({
   projectId,
   dataset,
   apiVersion,
-  useCdn: true, // Set to false if you want guaranteed fresh data
+  useCdn: false, // Disabled to get fresh data immediately
   perspective: 'published', // Only fetch published documents
 })

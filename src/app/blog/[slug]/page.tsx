@@ -11,6 +11,9 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
+// Revalidate this page every 60 seconds (ISR)
+export const revalidate = 60;
+
 export async function generateStaticParams() {
   const articles = await getArticles();
   return articles.map((article) => ({

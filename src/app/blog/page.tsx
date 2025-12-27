@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   description: 'Expert tips, guides, and resources for your Ann Arbor painting project. Learn from the professionals.',
 };
 
+// Revalidate this page every 60 seconds (ISR)
+export const revalidate = 60;
+
 export default async function BlogIndexPage() {
   const allArticles = await getArticles();
   // Filter for blog posts only (exclude resource articles)
