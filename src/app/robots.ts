@@ -10,5 +10,6 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: 'https://paintinga2.com/sitemap.xml',
+    // LLMs.txt file available at https://paintinga2.com/llms.txt for AI discoverability
   };
 }
