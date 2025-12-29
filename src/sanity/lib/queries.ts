@@ -180,7 +180,17 @@ export const ARTICLES_QUERY = defineQuery(`
         }
       }
     },
-    body,
+    body[]{
+      ...,
+      _type == "image" => {
+        ...,
+        asset->
+      },
+      _type == "inlineImage" => {
+        ...,
+        asset->
+      }
+    },
     seo
   }
 `)
@@ -232,7 +242,17 @@ export const ARTICLE_BY_SLUG_QUERY = defineQuery(`
         }
       }
     },
-    body,
+    body[]{
+      ...,
+      _type == "image" => {
+        ...,
+        asset->
+      },
+      _type == "inlineImage" => {
+        ...,
+        asset->
+      }
+    },
     seo
   }
 `)

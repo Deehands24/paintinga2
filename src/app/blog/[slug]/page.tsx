@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { getArticleBySlug, getArticlesByCategory, getArticles } from '@/lib/sanity-data';
 import type { Metadata } from 'next';
 import PageHeader from '@/components/PageHeader';
-import { PortableText } from 'next-sanity';
+import PortableTextRenderer from '@/components/PortableTextRenderer';
 import ArticleMedia from '@/components/ArticleMedia';
 import ArticleStructuredData from '@/components/ArticleStructuredData';
 
@@ -11,8 +11,8 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
-// Revalidate this page every 60 seconds (ISR)
-export const revalidate = 60;
+// Revalidate this page every hour as a fallback (primary revalidation is on-demand via webhook)
+export const revalidate = 3600;
 
 export async function generateStaticParams() {
   const articles = await getArticles();
@@ -47,8 +47,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     keywords: article.seo?.keywords,
     openGraph: ogImage
       ? {
-          images: [ogImage],
-        }
+        images: [ogImage],
+      }
       : undefined,
   };
 }
@@ -129,7 +129,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
           {/* Article Content */}
           <div className="article-content prose prose-lg max-w-none">
-            {article.body && <PortableText value={article.body} />}
+            <PortableTextRenderer value={article.body} />
           </div>
         </article>
 
