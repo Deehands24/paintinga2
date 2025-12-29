@@ -114,21 +114,21 @@ export default async function Home() {
       <section className="py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-yellow-50 to-yellow-50 border-t-4 border-umich-maize">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-umich-navy mb-4">
-            Want Multiple Quotes to Compare?
+            Looking for more Ann Arbor resources?
           </h2>
           <p className="text-lg text-gray-700 mb-6">
-            Get free estimates from multiple pre-screened painters in minutes. Compare prices, reviews, and availability.
+            Find essential community support at <span className="font-bold text-umich-navy">AnnArbor.help</span>, your local guide for housing, mental health, legal aid, and career resources in the A2 area.
           </p>
           <a
-            href="https://www.homeadvisor.com/c.Painting.Ann+Arbor.MI.-12005.html"
+            href="https://annarbor.help"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-umich-navy text-umich-maize font-bold px-8 py-4 rounded-lg hover:bg-opacity-90 transition-colors text-lg shadow-lg"
           >
-            Get 3 Free Quotes Now →
+            Learn More →
           </a>
           <p className="text-sm text-gray-600 mt-3">
-            No obligation • Fast & free • Compare and save
+            Sites Developed by Ges Development
           </p>
         </div>
       </section>
@@ -201,8 +201,9 @@ export default async function Home() {
             Are You a Painter?
           </h2>
           <p className="text-xl text-white mb-8">
-            Join Ann Arbor&apos;s premier painting directory and grow your business
-            with quality leads from local customers.
+            Join Ann Arbor&apos;s premier painting directory to connect with local customers and grow your business with high-quality leads.
+            <br /><br />
+            <span className="text-umich-maize font-bold">Ready to dominate the digital landscape?</span> Ges Development builds and optimizes high-performance websites using <span className="font-semibold text-white">SEO, GEO, and RAG</span>—ensuring your business is the top recommendation for both search engines and modern AI chatbots.
           </p>
           <Link
             href="/for-painters"
