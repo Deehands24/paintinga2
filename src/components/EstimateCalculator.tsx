@@ -109,63 +109,26 @@ export const EstimateCalculator: React.FC<{ businessName?: string }> = ({ busine
     const revealEstimate = async (e: React.FormEvent) => {
         e.preventDefault();
         if(contactInfo.phone || contactInfo.email) {
-            // Send lead to your email via simple webhook
             try {
                 const leadData = {
-                    timestamp: new Date().toISOString(),
-                    business: businessName || 'PaintingA2 (Homepage)',
-                    contact: contactInfo,
-                    project: formData,
-                    estimate: estimate,
-                    source: window.location.href
+                    contactInfo,
+                    formData,
+                    estimate,
+                    businessName: businessName || 'PaintingA2 Homepage',
+                    sourceUrl: window.location.href
                 };
 
-                // Send lead to email via FormSubmit
-                await fetch('https://formsubmit.co/ajax/paintinga2@ges-development.com', {
+                // Send to our API endpoint (saves to Sanity + logs to console)
+                await fetch('/api/estimate-lead', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'Accept': 'application/json'
                     },
-                    body: JSON.stringify({
-                        name: 'New PaintingA2 Lead',
-                        email: contactInfo.email || 'No email provided',
-                        phone: contactInfo.phone || 'No phone provided',
-                        message: `
-LEAD DETAILS
-===========
-Business: ${businessName || 'PaintingA2 Homepage'}
-Timestamp: ${leadData.timestamp}
-
-CONTACT INFO
-===========
-Email: ${contactInfo.email || 'Not provided'}
-Phone: ${contactInfo.phone || 'Not provided'}
-
-PROJECT DETAILS
-===========
-Square Footage: ${formData.squareFootage} sq ft
-Wall Condition: ${formData.wallCondition}
-Doors: ${formData.numDoors}
-Windows: ${formData.numWindows}
-Paint Quality: ${formData.paintQuality}
-Cabinets: ${formData.includeCabinets ? 'Yes' : 'No'}
-${formData.includeCabinets ? `Cabinet Doors: ${formData.numCabinetDoors}\nCabinet Drawers: ${formData.numCabinetDrawers}` : ''}
-
-ESTIMATE
-===========
-Range: $${estimate?.min.toLocaleString()} - $${estimate?.max.toLocaleString()}
-
-Source URL: ${leadData.source}
-                        `
-                    })
+                    body: JSON.stringify(leadData)
                 });
 
                 // Track lead in Google Analytics
                 trackLead(businessName, estimate);
-
-                // Log to console
-                console.log("✅ Lead captured:", leadData);
 
                 setStep('result');
             } catch (error) {
