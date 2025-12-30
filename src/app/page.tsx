@@ -4,6 +4,7 @@ import BusinessCard from '@/components/BusinessCard';
 import { EstimateCalculator } from '@/components/EstimateCalculator';
 import { getFeaturedBusinesses, getRecentArticles } from '@/lib/sanity-data';
 import Image from 'next/image';
+import DevServicesSection from '@/components/DevServicesSection';
 
 export default async function Home() {
   const featuredBusinesses = await getFeaturedBusinesses();
@@ -202,8 +203,6 @@ export default async function Home() {
           </h2>
           <p className="text-xl text-white mb-8">
             Join Ann Arbor&apos;s premier painting directory to connect with local customers and grow your business with high-quality leads.
-            <br /><br />
-                    <span className="text-umich-maize font-bold">Ready to dominate the digital landscape?</span> Ges Development builds and optimizes high-performance websites using <span className="font-semibold text-white">SEO, GEO, and RAG</span>
           </p>
           <Link
             href="/for-painters"
@@ -213,6 +212,9 @@ export default async function Home() {
           </Link>
         </div>
       </section>
+
+      {/* Development Services Ad Section */}
+      <DevServicesSection />
 
       {/* Footer */}
       <footer className="bg-umich-navy border-t-4 border-umich-maize text-white py-12 px-4 sm:px-6 lg:px-8">
