@@ -1,8 +1,12 @@
 import { defineQuery } from 'next-sanity'
 
-// Get all companies
+// Get all companies - Only published content
 export const COMPANIES_QUERY = defineQuery(`
-  *[_type == "company"] | order(featured desc, name asc) {
+  *[
+    _type == "company"
+    && !(_id in path("drafts.**"))
+    && defined(slug.current)
+  ] | order(featured desc, name asc) {
     _id,
     name,
     slug,
@@ -72,9 +76,14 @@ export const COMPANY_BY_SLUG_QUERY = defineQuery(`
   }
 `)
 
-// Get companies by service category
+// Get companies by service category - Only published content
 export const COMPANIES_BY_SERVICE_QUERY = defineQuery(`
-  *[_type == "company" && $service in services] | order(featured desc, name asc) {
+  *[
+    _type == "company"
+    && $service in services
+    && !(_id in path("drafts.**"))
+    && defined(slug.current)
+  ] | order(featured desc, name asc) {
     _id,
     name,
     slug,
@@ -91,9 +100,14 @@ export const COMPANIES_BY_SERVICE_QUERY = defineQuery(`
   }
 `)
 
-// Get featured companies
+// Get featured companies - Only published content
 export const FEATURED_COMPANIES_QUERY = defineQuery(`
-  *[_type == "company" && featured == true] | order(name asc) {
+  *[
+    _type == "company"
+    && featured == true
+    && !(_id in path("drafts.**"))
+    && defined(slug.current)
+  ] | order(name asc) {
     _id,
     name,
     slug,
@@ -108,9 +122,14 @@ export const FEATURED_COMPANIES_QUERY = defineQuery(`
   }
 `)
 
-// Get companies by tier
+// Get companies by tier - Only published content
 export const COMPANIES_BY_TIER_QUERY = defineQuery(`
-  *[_type == "company" && tier == $tier] | order(name asc) {
+  *[
+    _type == "company"
+    && tier == $tier
+    && !(_id in path("drafts.**"))
+    && defined(slug.current)
+  ] | order(name asc) {
     _id,
     name,
     slug,
@@ -133,9 +152,15 @@ export const COMPANY_SLUGS_QUERY = defineQuery(`
 
 // ========== ARTICLE QUERIES ==========
 
-// Get all articles
+// Get all articles - Only published content
 export const ARTICLES_QUERY = defineQuery(`
-  *[_type == "article"] | order(publishedDate desc) {
+  *[
+    _type == "article"
+    && !(_id in path("drafts.**"))
+    && defined(slug.current)
+    && defined(publishedDate)
+    && publishedDate <= now()
+  ] | order(publishedDate desc) {
     _id,
     title,
     slug,
@@ -257,48 +282,115 @@ export const ARTICLE_BY_SLUG_QUERY = defineQuery(`
   }
 `)
 
-// Get articles by category
+// Get articles by category - Only published content
 export const ARTICLES_BY_CATEGORY_QUERY = defineQuery(`
-  *[_type == "article" && category == $category] | order(publishedDate desc) {
+  *[
+    _type == "article"
+    && category == $category
+    && !(_id in path("drafts.**"))
+    && defined(slug.current)
+    && defined(publishedDate)
+    && publishedDate <= now()
+  ] | order(publishedDate desc) {
     _id,
     title,
     slug,
     category,
     publishedDate,
+    strategicPurpose,
     excerpt,
     mainImage {
-      asset->{
-        _id,
-        url,
-        metadata {
-          lqip,
-          dimensions { width, height }
-        }
+      mediaType,
+      image {
+        asset->{
+          _id,
+          url,
+          metadata {
+            lqip,
+            dimensions { width, height }
+          }
+        },
+        alt,
+        hotspot,
+        crop
       },
-      alt
+      video {
+        asset->{
+          _id,
+          url,
+          size,
+          mimeType
+        },
+        alt,
+        posterImage {
+          asset->{
+            _id,
+            url,
+            metadata {
+              lqip,
+              dimensions { width, height }
+            }
+          },
+          hotspot,
+          crop
+        }
+      }
     }
   }
 `)
 
-// Get recent articles (limit)
+// Get recent articles (limit) - Optimized to show only published, valid content
 export const RECENT_ARTICLES_QUERY = defineQuery(`
-  *[_type == "article"] | order(publishedDate desc) [0...$limit] {
+  *[
+    _type == "article"
+    && !(_id in path("drafts.**"))
+    && defined(slug.current)
+    && defined(publishedDate)
+    && publishedDate <= now()
+  ] | order(publishedDate desc) [0...$limit] {
     _id,
     title,
     slug,
     category,
     publishedDate,
+    strategicPurpose,
     excerpt,
     mainImage {
-      asset->{
-        _id,
-        url,
-        metadata {
-          lqip,
-          dimensions { width, height }
-        }
+      mediaType,
+      image {
+        asset->{
+          _id,
+          url,
+          metadata {
+            lqip,
+            dimensions { width, height }
+          }
+        },
+        alt,
+        hotspot,
+        crop
       },
-      alt
+      video {
+        asset->{
+          _id,
+          url,
+          size,
+          mimeType
+        },
+        alt,
+        posterImage {
+          asset->{
+            _id,
+            url,
+            metadata {
+              lqip,
+              dimensions { width, height }
+            }
+          },
+          hotspot,
+          crop
+        }
+      }
     }
   }
 `)

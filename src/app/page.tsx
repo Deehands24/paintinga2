@@ -203,7 +203,7 @@ export default async function Home() {
           <p className="text-xl text-white mb-8">
             Join Ann Arbor&apos;s premier painting directory to connect with local customers and grow your business with high-quality leads.
             <br /><br />
-            <span className="text-umich-maize font-bold">Ready to dominate the digital landscape?</span> Ges Development builds and optimizes high-performance websites using <span className="font-semibold text-white">SEO, GEO, and RAG</span>—ensuring your business is the top recommendation for both search engines and modern AI chatbots. <h2>We Build Update and Maintain Your Website as well as your whole online identity. Guartenteed to see results with in 3 weeks. If your interested in this please reach out. </h2>
+                    <span className="text-umich-maize font-bold">Ready to dominate the digital landscape?</span> Ges Development builds and optimizes high-performance websites using <span className="font-semibold text-white">SEO, GEO, and RAG</span>
           </p>
           <Link
             href="/for-painters"
