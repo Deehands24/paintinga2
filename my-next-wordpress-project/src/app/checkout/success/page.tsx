@@ -110,10 +110,10 @@ function SuccessContent() {
             Our support team is here to help you get the most out of your listing.
           </p>
           <a
-            href="mailto:paintinga2@ges-development.com"
+            href="mailto:management@paintinga2.com"
             className="text-blue-600 font-semibold hover:text-blue-700"
           >
-            paintinga2@ges-development.com
+            management@paintinga2.com
           </a>
         </div>
 

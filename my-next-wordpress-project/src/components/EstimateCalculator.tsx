@@ -121,7 +121,7 @@ export const EstimateCalculator: React.FC<{ businessName?: string }> = ({ busine
                 };
 
                 // Send lead to email via FormSubmit
-                await fetch('https://formsubmit.co/ajax/paintinga2@ges-development.com', {
+                await fetch('https://formsubmit.co/ajax/management@paintinga2.com', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

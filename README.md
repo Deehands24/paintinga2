@@ -209,7 +209,7 @@ Proprietary - All rights reserved
 
 ## Contact
 
-**Email**: paintinga2@ges-development.com
+**Email**: management@paintinga2.com
 **Website**: https://paintinga2.com
 
 ---

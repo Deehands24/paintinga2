@@ -405,7 +405,7 @@ export default function ForPaintersPage() {
                   <button
                     onClick={() => {
                       if (tier.tier === 'basic') {
-                        window.location.href = 'mailto:paintinga2@ges-development.com?subject=Claim%20Free%20Listing';
+                        window.location.href = 'mailto:management@paintinga2.com?subject=Claim%20Free%20Listing';
                       } else {
                         const priceId = getPriceId(tier.tier);
                         if (priceId) {
@@ -463,7 +463,7 @@ export default function ForPaintersPage() {
               View Plans
             </a>
             <a
-              href="mailto:paintinga2@ges-development.com"
+              href="mailto:management@paintinga2.com"
               className="inline-block bg-white text-umich-navy font-bold px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors shadow-lg"
             >
               Contact Us

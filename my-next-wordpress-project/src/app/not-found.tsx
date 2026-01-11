@@ -99,10 +99,10 @@ export default function NotFound() {
           <p className="text-gray-600">
             Need help? Email us at{' '}
             <a
-              href="mailto:paintinga2@ges-development.com"
+              href="mailto:management@paintinga2.com"
               className="text-blue-600 hover:underline"
             >
-              paintinga2@ges-development.com
+              management@paintinga2.com
             </a>
           </p>
         </div>

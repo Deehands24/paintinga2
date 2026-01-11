@@ -238,7 +238,7 @@ Or deploy to Vercel/Netlify
 
 ## 📧 KEY CONTACT POINTS
 
-**Email**: paintinga2@ges-development.com
+**Email**: management@paintinga2.com
 **Stripe Dashboard**: https://dashboard.stripe.com
 **Google Analytics**: https://analytics.google.com (Property ID: G-8F9DYC1JT4)
 **Google Search Console**: https://search.google.com/search-console

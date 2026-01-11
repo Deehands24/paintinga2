@@ -159,7 +159,7 @@ export default function PrivacyPage() {
               <li>The right to data portability</li>
             </ul>
             <p className="text-gray-700 mb-4">
-              To exercise these rights, please contact us at <a href="mailto:paintinga2@ges-development.com" className="text-blue-600 hover:underline">paintinga2@ges-development.com</a>.
+              To exercise these rights, please contact us at <a href="mailto:management@paintinga2.com" className="text-blue-600 hover:underline">management@paintinga2.com</a>.
             </p>
           </section>
 
@@ -183,7 +183,7 @@ export default function PrivacyPage() {
               If you have questions about this Privacy Policy, please contact us:
             </p>
             <p className="text-gray-700">
-              <strong>Email:</strong> <a href="mailto:paintinga2@ges-development.com" className="text-blue-600 hover:underline">paintinga2@ges-development.com</a><br />
+              <strong>Email:</strong> <a href="mailto:management@paintinga2.com" className="text-blue-600 hover:underline">management@paintinga2.com</a><br />
               <strong>Website:</strong> <a href="https://paintinga2.com" className="text-blue-600 hover:underline">paintinga2.com</a>
             </p>
           </section>

@@ -216,7 +216,7 @@ export default function TermsPage() {
               If you have questions about these Terms, please contact us:
             </p>
             <p className="text-gray-700">
-              <strong>Email:</strong> <a href="mailto:paintinga2@ges-development.com" className="text-blue-600 hover:underline">paintinga2@ges-development.com</a><br />
+              <strong>Email:</strong> <a href="mailto:management@paintinga2.com" className="text-blue-600 hover:underline">management@paintinga2.com</a><br />
               <strong>Website:</strong> <a href="https://paintinga2.com" className="text-blue-600 hover:underline">paintinga2.com</a>
             </p>
           </section>

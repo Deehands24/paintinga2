@@ -139,7 +139,7 @@ export function OrganizationStructuredData() {
     },
     contactPoint: {
       '@type': 'ContactPoint',
-      email: 'paintinga2@ges-development.com',
+      email: 'management@paintinga2.com',
       contactType: 'Customer Service',
     },
   };
