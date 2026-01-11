@@ -51,7 +51,7 @@ export default function DevServicesModal({ isOpen, onClose }: DevServicesModalPr
     } catch (error) {
       console.error('Error submitting form:', error);
       setStatus('error');
-      setErrorMessage('Failed to submit. Please try again or email directly at paintinga2@ges-development.com');
+      setErrorMessage('Failed to submit. Please try again or email directly at management@paintinga2.com');
     }
   };
 

@@ -139,10 +139,10 @@ export default function DevServicesSection() {
               </button>
 
               <a
-                href="mailto:paintinga2@ges-development.com"
+                href="mailto:management@paintinga2.com"
                 className="text-white hover:text-umich-maize font-semibold underline transition-colors"
               >
-                or email: paintinga2@ges-development.com
+                or email: management@paintinga2.com
               </a>
             </div>
 

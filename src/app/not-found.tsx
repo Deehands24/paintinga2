@@ -97,7 +97,7 @@ export default function NotFound() {
           <p className="text-gray-600">
             Need help? Email us at{' '}
             <a
-              href="mailto:paintinga2@ges-development.com"
+              href="mailto:management@paintinga2.com"
               className="text-umich-navy hover:underline"
             >
               management@paintinga2.com
