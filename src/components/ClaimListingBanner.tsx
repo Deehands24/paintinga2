@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Business } from '@/types/directory';
+import { trackEvent } from '@/components/Analytics';
 
 interface ClaimListingModalProps {
   business: Business;
@@ -27,6 +28,12 @@ function ClaimListingModal({ business, isOpen, onClose }: ClaimListingModalProps
     setError('');
 
     try {
+      // Track checkout start
+      trackEvent('claim_listing_checkout_start', {
+        companyName: business.name,
+        tier: formData.tier
+      });
+
       // Get the Stripe price ID based on selected tier
       const priceId = formData.tier === 'pro'
         ? process.env.NEXT_PUBLIC_STRIPE_PRO_PRICE_ID
@@ -171,17 +178,15 @@ function ClaimListingModal({ business, isOpen, onClose }: ClaimListingModalProps
               {/* Pro Tier */}
               <div
                 onClick={() => setFormData({ ...formData, tier: 'pro' })}
-                className={`cursor-pointer border-2 rounded-lg p-4 transition-all ${
-                  formData.tier === 'pro'
+                className={`cursor-pointer border-2 rounded-lg p-4 transition-all ${formData.tier === 'pro'
                     ? 'border-umich-navy bg-yellow-50'
                     : 'border-gray-200 hover:border-gray-300'
-                }`}
+                  }`}
               >
                 <div className="flex items-center justify-between mb-2">
                   <h3 className="font-bold text-lg text-gray-900">Pro</h3>
-                  <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
-                    formData.tier === 'pro' ? 'border-umich-navy bg-umich-navy' : 'border-gray-300'
-                  }`}>
+                  <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${formData.tier === 'pro' ? 'border-umich-navy bg-umich-navy' : 'border-gray-300'
+                    }`}>
                     {formData.tier === 'pro' && (
                       <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
@@ -200,20 +205,18 @@ function ClaimListingModal({ business, isOpen, onClose }: ClaimListingModalProps
               {/* Premier Tier */}
               <div
                 onClick={() => setFormData({ ...formData, tier: 'premier' })}
-                className={`cursor-pointer border-2 rounded-lg p-4 transition-all ${
-                  formData.tier === 'premier'
+                className={`cursor-pointer border-2 rounded-lg p-4 transition-all ${formData.tier === 'premier'
                     ? 'border-purple-600 bg-purple-50'
                     : 'border-gray-200 hover:border-gray-300'
-                }`}
+                  }`}
               >
                 <div className="flex items-center justify-between mb-2">
                   <div>
                     <h3 className="font-bold text-lg text-gray-900">Premier</h3>
                     <span className="text-xs bg-purple-600 text-white px-2 py-0.5 rounded-full">POPULAR</span>
                   </div>
-                  <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
-                    formData.tier === 'premier' ? 'border-purple-600 bg-purple-600' : 'border-gray-300'
-                  }`}>
+                  <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${formData.tier === 'premier' ? 'border-purple-600 bg-purple-600' : 'border-gray-300'
+                    }`}>
                     {formData.tier === 'premier' && (
                       <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
@@ -291,7 +294,10 @@ export function ClaimListingBanner({ business }: ClaimListingBannerProps) {
             </p>
           </div>
           <button
-            onClick={() => setIsModalOpen(true)}
+            onClick={() => {
+              setIsModalOpen(true);
+              trackEvent('claim_listing_modal_open', { companyName: business.name });
+            }}
             className="bg-yellow-400 text-umich-navy font-bold px-6 py-3 rounded-lg hover:bg-yellow-300 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 whitespace-nowrap"
           >
             Claim This Listing →

@@ -5,6 +5,7 @@ import { pricingTiers } from '@/data/pricing';
 import { useState } from 'react';
 import Image from 'next/image';
 import PageHeader from '@/components/PageHeader';
+import { trackPaymentClick } from '@/components/Analytics';
 
 export default function ForPaintersPage() {
   const [loading, setLoading] = useState<string | null>(null);
@@ -12,6 +13,7 @@ export default function ForPaintersPage() {
   const handleCheckout = async (tier: string, priceId: string) => {
     setLoading(tier);
     try {
+      trackPaymentClick(tier);
 
 
       const response = await fetch('/api/checkout', {
@@ -450,21 +452,7 @@ export default function ForPaintersPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-50 border-t-4 border-umich-maize py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto text-center text-gray-600">
-          <p>&copy; 2025 PaintingA2.com. All rights reserved.</p>
-          <p className="mt-2">
-            <Link href="/" className="hover:text-umich-navy">
-              Home
-            </Link>
-            {' | '}
-            <Link href="/listings" className="hover:text-umich-navy">
-              Browse Painters
-            </Link>
-          </p>
-        </div>
-      </footer>
+
     </div>
   );
 }
