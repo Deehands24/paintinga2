@@ -62,7 +62,7 @@ export default {
             subtitle: 'serviceName',
             date: 'submittedAt',
         },
-        prepare({ title, subtitle, date }) {
+        prepare({ title, subtitle, date }: { title?: string; subtitle?: string; date?: string }) {
             return {
                 title: title || 'Unknown Business',
                 subtitle: `${subtitle || 'Unknown Service'} - ${date ? new Date(date).toLocaleDateString() : 'No date'}`,

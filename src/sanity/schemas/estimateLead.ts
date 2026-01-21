@@ -113,7 +113,7 @@ export default {
             phone: 'contactPhone',
             date: 'submittedAt',
         },
-        prepare({ email, phone, date }) {
+        prepare({ email, phone, date }: { email?: string; phone?: string; date?: string }) {
             return {
                 title: email || phone || 'Unknown Contact',
                 subtitle: date ? new Date(date).toLocaleDateString() : 'No date',
