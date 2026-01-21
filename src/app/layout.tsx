@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 import { GoogleAnalytics } from "@/components/Analytics";
 import { OrganizationStructuredData } from "@/components/StructuredData";
 import { CookieConsent } from "@/components/CookieConsent";
@@ -91,6 +92,7 @@ export default function RootLayout({
         {GA_MEASUREMENT_ID && <GoogleAnalytics measurementId={GA_MEASUREMENT_ID} />}
         <WebVitals />
         {children}
+        <Analytics />
         <CookieConsent />
       </body>
     </html>
