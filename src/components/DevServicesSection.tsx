@@ -77,7 +77,7 @@ export default function DevServicesSection() {
           </div>
 
           {/* What We Do Section */}
-          <div className="bg-gradient-to-r from-umich-maize to-yellow-500 rounded-2xl p-8 mb-10 shadow-2xl">
+          <div className="bg-gradient-to-r from-umich-maize to-umich-navy rounded-2xl p-8 mb-10 shadow-2xl">
             <h3 className="text-2xl font-bold text-umich-navy mb-6 text-center">
               What We Build, Update &amp; Maintain:
             </h3>
