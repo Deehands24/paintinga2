@@ -66,7 +66,16 @@
 
 #### B. Stripe Payment Flow
 - [ ] Test Pro subscription checkout flow end-to-end
+- [ ] Test Pro subscription checkout flow end-to-end
 - [ ] Test Premier subscription checkout flow end-to-end
+- [ ] **Claim Listing Flow**:
+  - [ ] Go to a "Basic" tier listing
+  - [ ] Click "Claim This Listing"
+  - [ ] Verify form fields (Name, Phone, Email, Tier)
+  - [ ] Submit and complete checkout
+  - [ ] **Verify**: Listing tier updates to Pro/Premier
+  - [ ] **Verify**: Listing `verified` status becomes `true`
+  - [ ] **Verify**: Claimant email is saved to listing
 - [ ] Verify webhook receives checkout.session.completed event
 - [ ] Confirm company tier updates in Sanity after payment
 - [ ] Check that verified badge appears after subscription

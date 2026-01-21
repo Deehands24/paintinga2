@@ -52,14 +52,11 @@ export async function POST(req: NextRequest) {
     switch (event.type) {
       case 'checkout.session.completed': {
         const session = event.data.object as Stripe.Checkout.Session;
-        console.log('Checkout session completed:', session.id);
 
         // Get metadata
         const tier = session.metadata?.tier; // 'pro' or 'premier'
         const companyId = session.metadata?.companyId;
         const claimantEmail = session.metadata?.claimantEmail;
-
-        console.log(`Processing checkout - Tier: ${tier}, Company ID: ${companyId || 'none'}`);
 
         if (tier) {
           try {
@@ -74,8 +71,6 @@ export async function POST(req: NextRequest) {
 
             // If we have a company ID (claiming existing listing), update that specific company
             if (companyId) {
-              console.log(`Updating existing company: ${companyId}`);
-
               const mutateUrl = `https://${sanityProjectId}.api.sanity.io/v2024-10-01/data/mutate/${sanityDataset}`;
               const response = await fetch(mutateUrl, {
                 method: 'POST',
@@ -100,7 +95,7 @@ export async function POST(req: NextRequest) {
               });
 
               if (response.ok) {
-                console.log(`Successfully upgraded company ${companyId} to ${tier}`);
+                // Success
               } else {
                 const errorText = await response.text();
                 console.error(`Failed to update company: ${errorText}`);
@@ -116,61 +111,38 @@ export async function POST(req: NextRequest) {
       }
 
       case 'customer.subscription.created': {
-        const subscription = event.data.object as Stripe.Subscription;
-        console.log('Subscription created:', subscription.id);
-
-        // TODO: Handle new subscription
-        // - Update user's subscription status in database
-
+        // const subscription = event.data.object as Stripe.Subscription;
+        // Handle new subscription
         break;
       }
 
       case 'customer.subscription.updated': {
-        const subscription = event.data.object as Stripe.Subscription;
-        console.log('Subscription updated:', subscription.id);
-
-        // TODO: Handle subscription update
-        // - Update subscription status (active, canceled, etc.)
-        // - Handle plan changes
-
+        // const subscription = event.data.object as Stripe.Subscription;
+        // Handle subscription update
         break;
       }
 
       case 'customer.subscription.deleted': {
-        const subscription = event.data.object as Stripe.Subscription;
-        console.log('Subscription deleted:', subscription.id);
-
-        // TODO: Handle subscription cancellation
-        // - Revoke access to paid features
-        // - Update database
-
+        // const subscription = event.data.object as Stripe.Subscription;
+        // Handle subscription cancellation
         break;
       }
 
       case 'invoice.payment_succeeded': {
-        const invoice = event.data.object as Stripe.Invoice;
-        console.log('Invoice payment succeeded:', invoice.id);
-
-        // TODO: Handle successful payment
-        // - Send receipt email
-        // - Update payment records
-
+        // const invoice = event.data.object as Stripe.Invoice;
+        // Handle successful payment
         break;
       }
 
       case 'invoice.payment_failed': {
-        const invoice = event.data.object as Stripe.Invoice;
-        console.log('Invoice payment failed:', invoice.id);
-
-        // TODO: Handle failed payment
-        // - Send payment failure notification
-        // - Update subscription status
-
+        // const invoice = event.data.object as Stripe.Invoice;
+        // Handle failed payment
         break;
       }
 
       default:
-        console.log(`Unhandled event type: ${event.type}`);
+        // Unhandled event type
+        break;
     }
 
     return NextResponse.json({ received: true }, { status: 200 });
