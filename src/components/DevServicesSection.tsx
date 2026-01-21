@@ -51,11 +51,11 @@ export default function DevServicesSection() {
 
             <div className="bg-white bg-opacity-10 backdrop-blur-sm border border-umich-maize border-opacity-30 rounded-xl p-6 text-center hover:bg-opacity-20 transition-all">
               <div className="w-16 h-16 bg-umich-maize rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-umich-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-8 h-8 text-umich-navy" fill="currentColor" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                 </svg>
               </div>
-              <h3 className="text-white font-bold text-lg mb-2">Complete Brand Transformation</h3>
+              <h3 className="text-umich-navy font-bold text-lg mb-2">Complete Brand Transformation</h3>
               <p className="text-gray-300 text-sm">
                 Website rebuild, logo design, social media presence, Google Business optimization —
                 we handle your entire digital identity from A to Z.
@@ -64,11 +64,11 @@ export default function DevServicesSection() {
 
             <div className="bg-white bg-opacity-10 backdrop-blur-sm border border-umich-maize border-opacity-30 rounded-xl p-6 text-center hover:bg-opacity-20 transition-all">
               <div className="w-16 h-16 bg-umich-maize rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-umich-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-8 h-8 text-umich-navy" fill="currentColor" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-white font-bold text-lg mb-2">Results in 3 Weeks — Guaranteed</h3>
+              <h3 className="text-umich-navy font-bold text-lg mb-2">Results in 3 Weeks — Guaranteed</h3>
               <p className="text-gray-300 text-sm">
                 We don't just promise results — we guarantee them.
                 See measurable improvements in traffic, leads, and visibility within 21 days or we keep working for free.
