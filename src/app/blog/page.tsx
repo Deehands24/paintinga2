@@ -21,7 +21,7 @@ export default async function BlogIndexPage() {
   const categories = Array.from(new Set(articles.map(a => a.category)));
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-yellow-50 to-white">
+    <div className="min-h-screen bg-gradient-to-b from-yellow-550 to-white">
       <PageHeader
         navLinks={[
           { href: '/', label: 'Home' },
