@@ -55,9 +55,8 @@ Source:
 Submitted: ${new Date().toLocaleString('en-US', { timeZone: 'America/Detroit' })}
     `.trim();
 
-    console.log('\n' + '='.repeat(60));
-    console.log(leadLog);
-    console.log('='.repeat(60) + '\n');
+    // Log reduced info for production debugging
+    console.log(`Lead received from ${contactInfo.email || 'unknown'} for ${formData.projectType}`);
 
     // Save to Sanity
     try {

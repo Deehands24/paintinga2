@@ -15,9 +15,9 @@ function getStripe() {
 export async function POST(req: NextRequest) {
   try {
     const stripe = getStripe();
-    const { priceId, tier } = await req.json();
+    const { priceId, tier, companyId, claimData } = await req.json();
 
-    console.log('Checkout request received:', { priceId, tier });
+
 
     if (!priceId) {
       console.error('No price ID provided');
@@ -25,6 +25,19 @@ export async function POST(req: NextRequest) {
         { error: 'Price ID is required' },
         { status: 400 }
       );
+    }
+
+    // Build metadata for Stripe
+    const metadata: Record<string, string> = {
+      tier: tier,
+    };
+
+    // If claiming an existing listing, add company ID and claim data
+    if (companyId && claimData) {
+      metadata.companyId = companyId;
+      metadata.claimantName = claimData.name;
+      metadata.claimantPhone = claimData.phone;
+      metadata.claimantEmail = claimData.email;
     }
 
     // Create Checkout Session
@@ -39,14 +52,12 @@ export async function POST(req: NextRequest) {
       ],
       success_url: `${req.headers.get('origin')}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${req.headers.get('origin')}/for-painters?canceled=true`,
-      metadata: {
-        tier: tier,
-      },
+      metadata,
       allow_promotion_codes: true,
       billing_address_collection: 'required',
     });
 
-    console.log('Checkout session created:', session.id);
+
     return NextResponse.json({ url: session.url });
   } catch (error) {
     const errorMessage = error instanceof Error ? error.message : 'Unknown error';

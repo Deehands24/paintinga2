@@ -12,7 +12,7 @@ export default function ForPaintersPage() {
   const handleCheckout = async (tier: string, priceId: string) => {
     setLoading(tier);
     try {
-      console.log('Starting checkout with:', { tier, priceId });
+
 
       const response = await fetch('/api/checkout', {
         method: 'POST',
@@ -26,7 +26,7 @@ export default function ForPaintersPage() {
       });
 
       const data = await response.json();
-      console.log('Checkout response:', data);
+
 
       if (!response.ok) {
         throw new Error(data.details || data.error || 'Checkout failed');
@@ -275,11 +275,10 @@ export default function ForPaintersPage() {
             {pricingTiers.map((tier) => (
               <div
                 key={tier.tier}
-                className={`rounded-2xl shadow-xl ${
-                  tier.tier === 'premier'
-                    ? 'bg-gradient-to-b from-umich-navy to-[#00274C] text-white ring-4 ring-umich-maize ring-offset-4'
-                    : 'bg-white border-2 border-gray-200'
-                } ${tier.tier === 'premier' ? 'transform scale-105' : ''}`}
+                className={`rounded-2xl shadow-xl ${tier.tier === 'premier'
+                  ? 'bg-gradient-to-b from-umich-navy to-[#00274C] text-white ring-4 ring-umich-maize ring-offset-4'
+                  : 'bg-white border-2 border-gray-200'
+                  } ${tier.tier === 'premier' ? 'transform scale-105' : ''}`}
               >
                 <div className="p-8">
                   {tier.tier === 'premier' && (
@@ -288,47 +287,42 @@ export default function ForPaintersPage() {
                     </div>
                   )}
                   <h3
-                    className={`text-3xl font-bold mb-2 ${
-                      tier.tier === 'premier' ? 'text-white' : 'text-gray-900'
-                    }`}
+                    className={`text-3xl font-bold mb-2 ${tier.tier === 'premier' ? 'text-white' : 'text-gray-900'
+                      }`}
                   >
                     {tier.name}
                   </h3>
                   <div className="mb-6">
                     {tier.price.monthly === 0 ? (
                       <div
-                        className={`text-5xl font-bold ${
-                          tier.tier === 'premier' ? 'text-white' : 'text-gray-900'
-                        }`}
+                        className={`text-5xl font-bold ${tier.tier === 'premier' ? 'text-white' : 'text-gray-900'
+                          }`}
                       >
                         FREE
                       </div>
                     ) : (
                       <>
                         <div
-                          className={`text-5xl font-bold ${
-                            tier.tier === 'premier'
-                              ? 'text-white'
-                              : 'text-gray-900'
-                          }`}
+                          className={`text-5xl font-bold ${tier.tier === 'premier'
+                            ? 'text-white'
+                            : 'text-gray-900'
+                            }`}
                         >
                           ${tier.price.monthly}
                           <span
-                            className={`text-xl font-normal ${
-                              tier.tier === 'premier'
-                                ? 'text-gray-200'
-                                : 'text-gray-600'
-                            }`}
+                            className={`text-xl font-normal ${tier.tier === 'premier'
+                              ? 'text-gray-200'
+                              : 'text-gray-600'
+                              }`}
                           >
                             /month
                           </span>
                         </div>
                         <p
-                          className={`mt-1 ${
-                            tier.tier === 'premier'
-                              ? 'text-gray-300'
-                              : 'text-gray-600'
-                          }`}
+                          className={`mt-1 ${tier.tier === 'premier'
+                            ? 'text-gray-300'
+                            : 'text-gray-600'
+                            }`}
                         >
                           or ${tier.price.yearly}/year (Save $
                           {tier.price.monthly * 12 - tier.price.yearly})
@@ -342,11 +336,10 @@ export default function ForPaintersPage() {
                       <li key={featureIndex} className="flex items-start gap-3">
                         {feature.included ? (
                           <svg
-                            className={`w-6 h-6 flex-shrink-0 ${
-                              tier.tier === 'premier'
-                                ? 'text-umich-maize'
-                                : 'text-green-500'
-                            }`}
+                            className={`w-6 h-6 flex-shrink-0 ${tier.tier === 'premier'
+                              ? 'text-umich-maize'
+                              : 'text-green-500'
+                              }`}
                             fill="currentColor"
                             viewBox="0 0 20 20"
                           >
@@ -358,11 +351,10 @@ export default function ForPaintersPage() {
                           </svg>
                         ) : (
                           <svg
-                            className={`w-6 h-6 flex-shrink-0 ${
-                              tier.tier === 'premier'
-                                ? 'text-gray-400'
-                                : 'text-gray-300'
-                            }`}
+                            className={`w-6 h-6 flex-shrink-0 ${tier.tier === 'premier'
+                              ? 'text-gray-400'
+                              : 'text-gray-300'
+                              }`}
                             fill="currentColor"
                             viewBox="0 0 20 20"
                           >
@@ -374,15 +366,14 @@ export default function ForPaintersPage() {
                           </svg>
                         )}
                         <span
-                          className={`text-sm ${
-                            tier.tier === 'premier'
-                              ? feature.included
-                                ? 'text-white'
-                                : 'text-gray-300'
-                              : feature.included
+                          className={`text-sm ${tier.tier === 'premier'
+                            ? feature.included
+                              ? 'text-white'
+                              : 'text-gray-300'
+                            : feature.included
                               ? 'text-gray-700'
                               : 'text-gray-400'
-                          }`}
+                            }`}
                         >
                           {feature.feature}
                         </span>
@@ -402,21 +393,20 @@ export default function ForPaintersPage() {
                       }
                     }}
                     disabled={loading !== null}
-                    className={`w-full py-4 px-6 rounded-lg font-bold transition-colors disabled:opacity-50 disabled:cursor-not-allowed ${
-                      tier.tier === 'premier'
-                        ? 'bg-umich-maize text-umich-navy hover:bg-yellow-400'
-                        : tier.tier === 'pro'
+                    className={`w-full py-4 px-6 rounded-lg font-bold transition-colors disabled:opacity-50 disabled:cursor-not-allowed ${tier.tier === 'premier'
+                      ? 'bg-umich-maize text-umich-navy hover:bg-yellow-400'
+                      : tier.tier === 'pro'
                         ? 'bg-umich-navy text-white hover:bg-opacity-90'
                         : 'bg-gray-200 text-gray-900 hover:bg-gray-300'
-                    }`}
+                      }`}
                   >
                     {loading === tier.tier
                       ? 'Loading...'
                       : tier.tier === 'basic'
-                      ? 'Claim Your Listing'
-                      : tier.tier === 'pro'
-                      ? 'Get Started'
-                      : 'Go Premier'}
+                        ? 'Claim Your Listing'
+                        : tier.tier === 'pro'
+                          ? 'Get Started'
+                          : 'Go Premier'}
                   </button>
                 </div>
               </div>

@@ -54,11 +54,64 @@ export async function POST(req: NextRequest) {
         const session = event.data.object as Stripe.Checkout.Session;
         console.log('Checkout session completed:', session.id);
 
-        // TODO: Handle successful checkout
-        // - Create/update user subscription in your database
-        // - Send confirmation email
-        // - Grant access to paid features
+        // Get metadata
+        const tier = session.metadata?.tier; // 'pro' or 'premier'
+        const companyId = session.metadata?.companyId;
+        const claimantEmail = session.metadata?.claimantEmail;
 
+        console.log(`Processing checkout - Tier: ${tier}, Company ID: ${companyId || 'none'}`);
+
+        if (tier) {
+          try {
+            const sanityProjectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
+            const sanityDataset = process.env.NEXT_PUBLIC_SANITY_DATASET || 'production';
+            const sanityToken = process.env.SANITY_API_TOKEN;
+
+            if (!sanityToken) {
+              console.error('SANITY_API_TOKEN is missing. Cannot update user tier.');
+              break;
+            }
+
+            // If we have a company ID (claiming existing listing), update that specific company
+            if (companyId) {
+              console.log(`Updating existing company: ${companyId}`);
+
+              const mutateUrl = `https://${sanityProjectId}.api.sanity.io/v2024-10-01/data/mutate/${sanityDataset}`;
+              const response = await fetch(mutateUrl, {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                  Authorization: `Bearer ${sanityToken}`,
+                },
+                body: JSON.stringify({
+                  mutations: [
+                    {
+                      patch: {
+                        id: companyId,
+                        set: {
+                          tier: tier,
+                          verified: true,
+                          email: claimantEmail || session.customer_details?.email || undefined
+                        }
+                      }
+                    }
+                  ]
+                })
+              });
+
+              if (response.ok) {
+                console.log(`Successfully upgraded company ${companyId} to ${tier}`);
+              } else {
+                const errorText = await response.text();
+                console.error(`Failed to update company: ${errorText}`);
+              }
+            } else {
+              console.warn('No company ID provided in metadata. Manual follow-up needed.');
+            }
+          } catch (sanityError) {
+            console.error('Failed to update Sanity:', sanityError);
+          }
+        }
         break;
       }
 

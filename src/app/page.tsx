@@ -206,7 +206,7 @@ export default async function Home() {
           </p>
           <Link
             href="/for-painters"
-            className="inline-block bg-umich-maize text-umich-navy font-bold px-8 py-4 rounded-lg hover:bg-yellow-400 transition-colors text-lg shadow-lg"
+            className="inline-block bg-umich-maize text-umich-navy font-bold px-8 py-4 rounded-lg hover:bg-yellow-500 transition-colors text-lg shadow-lg"
           >
             Learn More About Listing Your Business
           </Link>

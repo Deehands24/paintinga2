@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getBusinessBySlug, getBusinesses } from '@/lib/sanity-data';
 import { EstimateCalculator } from '@/components/EstimateCalculator';
+import { ClaimListingBanner } from '@/components/ClaimListingBanner';
 import type { Metadata } from 'next';
 import PageHeader from '@/components/PageHeader';
 
@@ -69,6 +70,9 @@ export default async function ListingPage({ params }: PageProps) {
             <li className="text-gray-900 font-medium">{business.name}</li>
           </ol>
         </nav>
+
+        {/* Claim Listing Banner - Only shows for Basic tier */}
+        <ClaimListingBanner business={business} />
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Left Column - Main Content */}

@@ -40,9 +40,8 @@ CONTACT THEM IMMEDIATELY!
     `.trim();
 
     // Log to console for now (you can see this in your terminal)
-    console.log('\n' + '='.repeat(60));
-    console.log(emailContent);
-    console.log('='.repeat(60) + '\n');
+    // Log reduced info for production debugging
+    console.log(`Inquiry received from ${email}`);
 
     // TODO: Add email service integration here
     // Options:
