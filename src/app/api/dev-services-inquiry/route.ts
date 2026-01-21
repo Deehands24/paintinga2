@@ -74,7 +74,9 @@ CONTACT THEM IMMEDIATELY!
         const sanityProjectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
         const sanityDataset = process.env.NEXT_PUBLIC_SANITY_DATASET || 'production';
 
-        await fetch(
+        console.log(`📝 Attempting to save to Sanity project: ${sanityProjectId}, dataset: ${sanityDataset}`);
+
+        const sanityResponse = await fetch(
           `https://${sanityProjectId}.api.sanity.io/v2024-10-01/data/mutate/${sanityDataset}`,
           {
             method: 'POST',
@@ -101,6 +103,15 @@ CONTACT THEM IMMEDIATELY!
             }),
           }
         );
+
+        const sanityResult = await sanityResponse.json();
+        if (sanityResponse.ok) {
+          console.log('✅ Dev Services inquiry saved to Sanity:', sanityResult);
+        } else {
+          console.error('❌ Sanity save failed:', sanityResult);
+        }
+      } else {
+        console.warn('⚠️ SANITY_API_TOKEN not set - inquiry not saved to CMS');
       }
     } catch (webhookError) {
       console.error('Failed to send webhook/save to Sanity:', webhookError);

@@ -65,7 +65,9 @@ Submitted: ${new Date().toLocaleString('en-US', { timeZone: 'America/Detroit' })
       const sanityToken = process.env.SANITY_API_TOKEN;
 
       if (sanityProjectId && sanityToken) {
-        await fetch(
+        console.log(`📝 Attempting to save to Sanity project: ${sanityProjectId}, dataset: ${sanityDataset}`);
+
+        const sanityResponse = await fetch(
           `https://${sanityProjectId}.api.sanity.io/v2024-10-01/data/mutate/${sanityDataset}`,
           {
             method: 'POST',
@@ -101,7 +103,13 @@ Submitted: ${new Date().toLocaleString('en-US', { timeZone: 'America/Detroit' })
             }),
           }
         );
-        console.log('✅ Lead saved to Sanity successfully');
+
+        const sanityResult = await sanityResponse.json();
+        if (sanityResponse.ok) {
+          console.log('✅ Lead saved to Sanity successfully:', sanityResult);
+        } else {
+          console.error('❌ Sanity save failed:', sanityResult);
+        }
       } else {
         console.warn('⚠️ Sanity credentials not configured - lead not saved to CMS');
       }
