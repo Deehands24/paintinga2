@@ -39,7 +39,7 @@ export function Footer() {
                         <h3 className="text-lg font-bold text-umich-maize mb-4">Contact</h3>
                         <ul className="space-y-2 text-sm text-gray-300">
                             <li>Ann Arbor, MI</li>
-                            <li><a href="mailto:hello@paintinga2.com" className="hover:text-white transition-colors">hello@paintinga2.com</a></li>
+                            <li><a href="mailto:management@paintinga2.com" className="hover:text-white transition-colors">management@paintinga2.com</a></li>
                         </ul>
                     </div>
                 </div>

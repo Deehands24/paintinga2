@@ -112,7 +112,7 @@ export default async function Home() {
       </section>
 
       {/* Affiliate CTA - Extra Revenue Stream */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-yellow-50 to-yellow-50 border-t-4 border-umich-maize">
+      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-yellow-100 to-yellow-200 border-t-4 border-umich-maize">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-umich-navy mb-4">
             Looking for more Ann Arbor resources?
